@@ -1,0 +1,48 @@
+{{!< default}}
+{{!-- {{#post}}
+{{#if feature_image}}
+<div class="archive-cover global-cover global-bg-image" style="background-image: url({{feature_image}})"></div>
+{{else if @site.cover_image}}
+<div class="global-cover global-bg-image" style="background-image: url({{@site.cover_image}})"></div>
+{{/if}}
+{{/post}} --}}
+{{#get "tags" limit="all" include="count.posts" order="count.posts desc"}}
+<div class="custom-tags global-section">
+	<div class="global-wrap global-flex">
+		{{#foreach tags to=2}}
+		<div class="tags-item tags-item-double global-flex">
+			<a href="{{url}}" class="global-link" aria-label="link {{name}} tag"></a>
+			<div class="tags-content tags-content-double">
+				{{#if feature_image}}
+				<div class="tags-image global-image">
+					{{>images/feature_img_tags}}
+				</div>
+				{{/if}}
+				<h2><a href="{{url}}">{{name}}</a></h2>
+				{{#if description}}
+				<p class="tags-description">{{description}}</p>
+				{{/if}}
+			</div>
+			<div class="tags-counter">{{count.posts}}</div>
+		</div>
+		{{/foreach}}
+		<small class="tags-heading global-heading">
+		{{t "You might also like"}}
+		</small>
+		{{#foreach tags from=3}}
+		<div class="tags-item global-flex">
+			<a href="{{url}}" class="global-link" aria-label="link {{name}} tag"></a>
+			<div class="tags-content tags-content-archive">
+				{{#if feature_image}}
+				<div class="tags-image global-image">
+					{{>images/feature_img_tags}}
+				</div>
+				{{/if}}
+				<h2><a href="{{url}}">{{name}}</a></h2>
+			</div>
+			<div class="tags-counter">{{count.posts}}</div>
+		</div>
+		{{/foreach}}
+	</div>
+</div>
+{{/get}}

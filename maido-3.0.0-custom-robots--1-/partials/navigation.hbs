@@ -1,0 +1,62 @@
+{{#if isSecondary}}
+<ul role="list" class="nav-menu-two">
+    {{#foreach navigation}}
+    <li class="nav-item-{{slug}}">
+        <a href="{{url absolute=" true"}}"{{#if current}} class="is-active" {{/if}}>{{label}}</a>
+    </li>
+    {{/foreach}}
+</ul>
+{{else}}
+<ul class="header-nav-list">
+    {{#foreach navigation}}
+    <li class="nav-item-{{slug}}">
+        <a href="{{url absolute=" true"}}"{{#if current}} class="is-active" {{/if}}>{{label}}</a>
+    </li>
+    {{/foreach}}
+    {{#if @custom.content_api_key_for_search}}
+    <li id="search-open" class="search-open"><span>{{t "Search"}}</span>{{>icons/site/search}}</li>
+    {{/if}}
+</ul>
+<script>
+    let navItems = document.querySelectorAll('.header-nav-list li')
+    var prevItem
+    var subItems = [];
+    for (var i = 0; i < navItems.length; i++) {
+        let item = navItems[i]
+        let label = item.children[0].innerHTML
+
+        if (label.indexOf('--') == 0) {
+            subItems.push({
+                link: item.innerHTML,
+                classes: item.classList
+            })
+        } else {
+            if (subItems.length > 0) {
+
+                // Append list to previous item
+                let subNavHTML = '<svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224 416c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L224 338.8l169.4-169.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-192 192C240.4 412.9 232.2 416 224 416z"/></svg><ul>'
+                for (var j = 0; j < subItems.length; j++) {
+                    subNavHTML += '<li>' + subItems[j].link.replace('-- ', '') + '</li>';
+                    document.querySelector('.header-nav-list .' + subItems[j].classes[0]).remove(); // delete original link
+
+                }
+                subNavHTML += '</ul>'
+
+                prevItemInner = prevItem.children[0].innerHTML;
+
+                prevItem.innerHTML = '<a>' + prevItemInner + '</a>';
+
+                prevItem.innerHTML = '' + prevItem.innerHTML + subNavHTML + ''
+
+                prevItem.classList.remove('nav-current')
+                prevItem.classList.add('subnav')
+                prevItem.classList.add('nav-wrapper')
+
+            }
+            // Reset
+            prevItem = item
+            subItems = []
+        }
+    }
+</script>
+{{/if}}

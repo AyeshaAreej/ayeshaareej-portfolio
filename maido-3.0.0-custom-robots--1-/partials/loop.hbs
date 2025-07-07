@@ -1,0 +1,21 @@
+<div class="loop-section global-section">
+    <div class="loop-wrap global-wrap global-flex{{#is "author,tag"}} loop-archive global-grid{{/is}}">
+        {{#foreach posts to="3"}}
+        <article class="loop-item global-item global-flex global-aos{{#is "author,tag"}}{{^is "paged"}} is-archive{{#if @first}} is-double{{/if}}{{/is}}{{/is}}{{#is "paged"}} is-archive{{/is}}{{#if feature_image}} is-image{{/if}}{{>colors_light}}{{>colors_dark}} {{post_class}}" data-aos="fade-up">
+            {{>loop_item}}
+        </article>
+        {{/foreach}}
+
+        {{^is "author,tag,paged"}}
+        <small class="loop-heading global-heading" data-aos="fade-up">
+            {{t "You really must see our earlier posts"}}
+        </small>
+        {{/is}}
+
+        {{#foreach posts from="4"  }}
+        <article class="loop-item global-item global-flex global-aos is-archive{{^is "author,tag,paged"}}{{#if @first}} is-double{{/if}}{{/is}}{{#if feature_image}} is-image{{/if}}{{>colors_light}}{{>colors_dark}} {{post_class}}" data-aos="fade-up">
+            {{>loop_item}}
+        </article>
+        {{/foreach}}
+    </div>
+</div>

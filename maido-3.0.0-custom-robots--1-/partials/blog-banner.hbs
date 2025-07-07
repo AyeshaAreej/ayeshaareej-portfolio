@@ -1,0 +1,57 @@
+<div class="global-wrap">
+    <h2 class="blog-banner-title">Blog</h2>
+
+    {{#foreach posts limit="1" order="desc" by="published_at"}}
+        <article class="loop-item global-item banner-container is-archive{{^is "author,tag,paged"}}{{#if @first}} is-double{{/if}}{{/is}} {{post_class}}" data-aos="fade-up" 
+        style="{{#unless custom_excerpt}}align-items: center;{{/unless}}">
+            <div class="blog-left-box" >
+                <div class="blog-left-box-inner" >
+                    <div>
+                        <div class="blog-title" id="blog-id">
+                           {{title}}
+                        </div>
+                       
+                        {{#if published_at}}
+                            <div class="blog-date">
+                          {{date published_at format="MMMM, YYYY"}}
+                            </div>
+                        {{/if}}
+                    </div>
+
+                    <!-- SVG image here -->
+                    <div>
+                        <img src="../assets/images/blogBannerImage.svg" alt="Your SVG Image" class="blog-banner-img">
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="blog-right-box">
+                <p class="blog-right-box-title">{{title}}</p>
+                {{#if custom_excerpt}}
+                    <div class="blog-right-box-description" >
+                     {{{custom_excerpt}}} 
+                    </div>
+                {{/if}}
+                <a href="{{url}}"class="buttonAnchor">
+                    <button class="readArticle-button">{{t "Read article"}}</button>
+                </a>
+            </div>
+        </article>
+    {{/foreach}}
+
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Shorten the title text to 42 characters
+        var element = document.getElementById('blog-id');
+        if (element.innerText.length > 60) {
+            element.innerText = element.innerText.slice(0, 60) + '...';
+        }
+        console.log('text', element.innerText);
+    });
+
+
+
+
+</script>

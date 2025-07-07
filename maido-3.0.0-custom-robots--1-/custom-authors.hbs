@@ -1,0 +1,48 @@
+{{!< default}}
+{{!-- {{#post}}
+{{#if feature_image}}
+<div class="archive-cover global-cover global-bg-image" style="background-image: url({{feature_image}})"></div>
+{{else if @site.cover_image}}
+<div class="global-cover global-bg-image" style="background-image: url({{@site.cover_image}})"></div>
+{{/if}}
+{{/post}} --}}
+{{#get "authors" limit="all" include="count.posts" order="count.posts desc"}}
+<div class="custom-authors global-section">
+	<div class="authors-wrap archive-wrap global-wrap global-flex">
+		{{#foreach authors}}
+		<div class="authors-item global-flex">
+			<a href="{{url}}" class="global-link" aria-label="link {{name}}"></a>
+			{{#if profile_image}}
+			<div class="authors-image archive-image global-image">
+				{{>images/profile_img_author}}
+			</div>
+			{{/if}}
+			<div class="authors-title-wrap archive-title-wrap global-flex is-author">
+				<div class="authors-content">
+					<h2 class="authors-title archive-title">{{name}}dddd</h2>
+					{{#if location}}
+					<div class="archive-location">
+						<span>{{t "from"}} {{location}}</span>
+					</div>
+					{{/if}}
+					{{#if bio}}
+					<p class="archive-description">{{bio}}</p>
+					{{/if}}
+				</div>
+				<div class="authors-icons archive-icons global-flex">
+					{{#if website}}
+					<a href="{{website}}" aria-label="{{name}} website">{{>icons/site/link}}</a>
+					{{/if}}
+					{{#if facebook}}
+					<a href="{{facebook_url}}" aria-label="{{name}} Facebook">{{>icons/social/facebook}}</a>
+					{{/if}}
+					{{#if twitter}}
+					<a href="{{twitter_url}}" aria-label="{{name}} Twitter">{{>icons/social/twitter}}</a>
+					{{/if}}
+				</div>
+			</div>
+		</div>
+		{{/foreach}}
+	</div>
+</div>
+{{/get}}

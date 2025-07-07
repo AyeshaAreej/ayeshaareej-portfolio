@@ -1,0 +1,7 @@
+User-agent: *
+Sitemap: https://www.toksta.com/sitemap.xml
+Sitemap: https://www.toksta.com/sitemap-products.xml
+Disallow: /ghost/
+Disallow: /p/
+Disallow: /email/
+Disallow: /r/

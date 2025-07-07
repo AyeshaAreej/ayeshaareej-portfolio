@@ -1,0 +1,32 @@
+<div class="footer">
+        <div class="container w-container">
+            <div data-animation="default"  role="banner" class="navbar-logo-left-container shadow-three w-nav">
+                <div class="navbar-wrapper">
+                    {{#if @site.logo}}
+                    <a href="#" class="navbar-brand navbar-brand-footer w-nav-brand">
+                        <img
+                            src="{{@site.logo}}"
+                            loading="lazy" sizes="120px"
+                            alt="" class="logo footer-logo">
+                    </a>
+                    {{/if }}
+                    <nav role="navigation" class="nav-menu-wrapper w-nav-menu">
+                             {{navigation type="secondary"}}
+                    </nav>
+                </div>
+                <div class="w-nav-overlay" data-wf-ignore="" id="w-nav-overlay-1"></div>
+            </div>
+            <div class="footer-bottom">
+                <p><a href="{{@site.url}}">{{@site.title}}</a> &copy; {{date format="YYYY"}}</p>
+                <div class="socials">
+                    {{#if @site.facebook}}
+                    <a href="{{@site.facebook}}">{{> icons/social/fb}}</a>
+                    {{/if}}
+                    {{#if @site.twitter}}
+                    <a href="{{@site.twitter}}">{{> icons/social/tw}}</a>
+                    {{/if}}
+                    {{>footer_icons}}
+                </div>
+            </div>
+        </div>
+    </div>

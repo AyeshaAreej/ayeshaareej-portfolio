@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="{{@site.locale}}"{{#match @custom.color_scheme "Dark"}} class="dark-mode"{{/match}}{{#match @custom.color_scheme "Auto"}} class="auto-dark-mode"{{/match}}>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>{{meta_title page=(t "meta-page")}}</title>
+		<meta name="HandheldFriendly" content="True">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		{{>services/google_fonts}}
+		<link rel="stylesheet" type="text/css" href="{{asset "css/screen.css"}}">
+        <link rel="stylesheet" type="text/css" href="{{asset "css/home.css"}}">
+		{{ghost_head}}
+	</head>
+	<body class="{{body_class}}{{#match @custom.layout "Big posts & Grid"}} global-grid{{/match}}{{#match @custom.layout "Grid & Big posts"}} global-grid-hero{{/match}}{{#match @custom.layout "Grid"}} global-grid global-grid-hero{{/match}}{{#if @custom.two_large_posts_in_a_grid_layout}} global-double{{/if}}{{#if @custom.color_label_on_the_left_side}} global-labels{{/if}}{{#if @custom.white_text_when_accent_color_is_dark}} global-white-text{{/if}}{{#get "tags" limit="1" filter="slug:hash-pinned-hero" as |tags|}}{{#tags}} global-pinned-hero{{/tags}}{{/get}}">
+		<div class="global-container">
+			{{>header}}
+			<div class="global-main">
+                {{!-- {{> hero}} --}}
+                {{> section-discover}}
+				
+                {{#post}}
+                    <section class="home-about-section wf-section {{post_class}}">
+                        <div class="container">
+                            <h1 class="centered-heading-2 margin-bottom-32px">{{title}}</h1>
+                            <div class="hero-wrapper-2">
+                                <div class="v-card-img">
+                                    {{#if feature_image}}
+                                            <img class="shadow-two-2"
+                                                src="{{img_url feature_image}}"
+                                                alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+                                            />
+                                    {{/if}}
+                                </div>
+                                <div class="vertical-card-container">
+                                        {{content}}
+                                </div>
+                        </div>
+                    </section>
+                {{/post}}
+				{{#if @site.description}}
+				<div class="description-section global-flex">{{@site.description}}</div>
+				{{/if}}
+			</div>
+			{{> home-footer}}
+			{{>members/notifications}}
+		</div>
+		{{>search}}
+		{{#if pagination.pages}}
+		<script src="{{asset "js/index.js"}}"></script>
+		{{/if}}
+		{{#is "post, page"}}
+		<script src="{{asset "js/post.js"}}"></script>
+		{{/is}}
+	   <script src="{{asset "js/custom-helpers.js"}}"></script>
+		<script src="{{asset "js/global.js"}}"></script>
+		<script>document.addEventListener("DOMContentLoaded",function(){const a=document.body;a.classList.add("is-loaded")})</script>
+		{{{block "notifications_js"}}}
+		{{{block "membership_js"}}}
+		{{ghost_foot}}
+	</body>
+</html>
+
+
+

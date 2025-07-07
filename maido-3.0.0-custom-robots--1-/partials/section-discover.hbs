@@ -1,0 +1,31 @@
+<section class="discover-section">
+    <div class="container">
+        <h1 class="centered-heading">Discover The Best Software In Every Category.</h1>
+        <p class="centered-subheading">Read our bitesize roundup reviews of the best software in every category.</p>
+    </div>
+</section>
+<div class="container loop-section">
+    <div class="loop-wrap global-wrap global-flex loop-archive global-grid">
+        {{#get "posts" include="tags,authors" as |post|}}
+        {{#foreach posts to="3"}}
+        <article
+            class="loop-item global-item global-flex  is-double is-archive{{#if feature_image}} is-image{{/if}}{{>colors_light}}{{>colors_dark}} {{post_class}}"
+            data-aos="fade-up">
+            {{>loop_item}}
+        </article>
+        {{/foreach}}
+        
+        {{#foreach posts from="4" to="4"}}
+        <article class="loop-item global-item global-flex  is-archive{{^is " author,tag,paged"}}{{#if @first}}
+            is-double{{/if}}{{/is}}{{#if feature_image}} is-image{{/if}}{{>colors_light}}{{>colors_dark}}
+            {{post_class}}" data-aos="fade-up">
+            {{>loop_item}}
+        </article>
+        {{/foreach}}
+        <small class="loop-heading global-heading" data-aos="fade-up">
+            {{t "You really must see our earlier posts"}}
+        </small>
+        <a href="/blog"class="loadmore-button global-button">{{t "Read more"}}</a>
+        {{/get}}
+    </div>
+</div>

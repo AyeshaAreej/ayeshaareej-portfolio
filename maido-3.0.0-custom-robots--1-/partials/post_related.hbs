@@ -1,0 +1,18 @@
+{{#if primary_tag}}
+<div class="related-section global-section">
+	{{#get "posts" limit="3" filter="tags:{{primary_tag.slug}}+id:-{{id}}" include="authors,tags" as |related-posts|}}
+	{{#if related-posts}}
+	<div class="related-wrap pinned-wrap global-flex">
+		{{#foreach posts}}
+		{{#if @first}}
+		<small class="related-heading global-heading blog-banner-title">
+		{{t "You might also like"}}
+		</small>
+		{{/if}}
+		{{>pinned_post index=@index }}
+		{{/foreach}}
+	</div>
+	{{/if}}
+	{{/get}}
+</div>
+{{/if}}

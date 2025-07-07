@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import LaptopImg from "../../assets/home-main.svg";
+import LaptopImg from "../../assets/home-main.png";
 import Tilt from "react-parallax-tilt";
 import {
   AiFillGithub,
@@ -21,47 +21,34 @@ const About = () => {
                   LET ME <span className="yellow"> INTRODUCE </span> MYSELF
                 </h1>
                 <p className="home-about-body">
-                 Hi, my name is <span className="yellow">Md Abu Bakkar Siddiqe Sajib </span>
-                 and I'm from <span className="yellow"> Dhaka, Bangladesh.</span>
+                 Hi, my name is <span className="yellow">Ayesha Areej </span>
+                 and I'm a <span className="yellow"> Full-Stack Web & Mobile App Developer.</span>
                 <br />
+               
                 <br />
-                I recently graduated with a Bachelor's degree in Computer Science and Engineering in 2021.
-                <br />
-                <br />
-                  As a
-                  <b className="yellow"> Full-Stack </b>developer,  
-                  I enjoy tackling new challenges and continuously expanding my skillset.
+                 I specialize in building modern, 
+                  <b className="yellow"> user-friendly </b>software 
+                  using technologies like React.js, Node.js, NestJS, and React Native.
                   <br />
                   <br />I am proficient in
                     <b className="yellow"> Javascript, </b>
-                    as well as have knowledge in programming languages such as C, Java, Python,
-                  <b className="yellow"> GraphQL, and Solidity.</b>
+                    as well as have knowledge in programming languages such as C, 
+                  <b className="yellow"> Java, and Python.</b>
                   <br />
                   <br />
-                  I have a passion for working
-                  with <b className="yellow">Node.js, MongoDB,</b> and
-                  <i>
-                    <b className="yellow">
-                      {" "}
-                      modern Javascript libraries and frameworks
-                    </b>
-                  </i>
-                  &nbsp; like
-                  <i>
-                    <b className="yellow"> React.js</b>
-                  </i>
+                  I enjoy building projects that solve  
+                  with <b className="yellow">real-world problems</b> — from event planning platforms and mobile apps to management systems and interactive clones.
                   <br />
                   <br />
-                  I am also interested in building new
-                  <i>
-                    <b className="yellow"> Web Technologies and Products, </b>
-                    as well as exploring areas related to
-                    <b className="yellow"> Artificial Intelligence.</b>
-                  </i>
+                  Beyond coding, I’m a 
+                    <b className="yellow"> problem solver, strong communicator, and team player. </b>
+                   Being awarded the Talent Hunt scholarship by <b className="yellow"> Sukkur IBA University</b> to pursue my Bachelor's degree, reflects my academic excellence and dedication.
                   <br />
-                  
+                  <br/>
+                  In short, I’m driven by a passion for technology and a focus on delivering  <b className="yellow"> high-quality, scalable solutions</b> that thrive in  <b className="yellow"> dynamic environments.</b>
                 </p>
               </Col>
+              {/* svg img to be update form having male to female */}
               <Col md={4} className="myAvtar">
                 <Tilt>
                   <img src={LaptopImg} className="img-fluid" alt="avatar" />

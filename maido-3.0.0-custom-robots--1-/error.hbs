@@ -1,0 +1,29 @@
+{{!< default-custom}}
+{{#contentFor "custom_meta_title"}}{{statusCode}}{{/contentFor}}
+<body class="custom-error{{#if @custom.white_text_when_accent_color_is_dark}} global-white-text{{/if}}">
+	{{!-- {{#if @site.cover_image}}
+	<div class="global-cover global-bg-image" style="background-image: url({{@site.cover_image}})"></div>
+	{{/if}} --}}
+	<div class="custom-wrap global-flex">
+		<div class="custom-flex global-flex">
+			<div class="custom-header">
+				<a href="{{@site.url}}" class="custom-heading global-heading">{{>icons/site/arrow}}{{t "Back to Homepage"}}</a>
+			</div>
+			<div class="custom-content global-flex">
+				<div class="error-message">
+					<h1>{{statusCode}}</h1>
+					<h3>{{message}}</h3>
+					<a href="{{@site.url}}" class="global-button">{{t "Back to Homepage"}}</a>
+				</div>
+			</div>
+			{{#if @site.description}}
+			<div class="custom-footer">
+				<a href="{{@site.url}}">{{@site.title}}.</a>
+				<span>{{@site.description}}.</span>
+			</div>
+			{{/if}}
+		</div>
+	</div>
+	<script>document.addEventListener("DOMContentLoaded",function(){const a=document.body;a.classList.add("is-loaded")})</script>
+	{{ghost_foot}}
+</body>

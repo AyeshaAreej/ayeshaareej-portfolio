@@ -1,0 +1,45 @@
+{{!< default-custom}}
+{{#contentFor "custom_meta_title"}}{{meta_title}}{{/contentFor}}
+<body class="custom-contact custom-subscribe{{#if @custom.white_text_when_accent_color_is_dark}} global-white-text{{/if}}">
+	<div class="custom-wrap global-flex">
+		{{#post}}
+		{{!-- {{#if feature_image}}
+		<div class="custom-image global-bg-image" style="background-image: url({{feature_image}})"></div>
+		<div class="global-cover global-bg-image{{#if feature_image}} custom-cover{{/if}}" style="background-image: url({{feature_image}})"></div>
+		{{else if @site.cover_image}}
+		<div class="global-cover global-bg-image" style="background-image: url({{@site.cover_image}})"></div>
+		{{/if}} --}}
+		<div class="custom-flex global-flex">
+			<div class="custom-header">
+				<a href="{{@site.url}}" class="custom-heading global-heading">{{>icons/site/arrow}}{{t "Back to Homepage"}}</a>
+			</div>
+			<div class="custom-content global-flex">
+				<div class="subscribe-content">
+					<h3 class="subscribe-title">{{title}}</h3>
+					<div class="subscribe-ityped">
+						<span id="ityped"></span>
+					</div>
+					<form method="POST" action="{{@custom.contact_form_endpoint}}">
+						<input class="contact-name contact-input global-input" aria-label="{{t "Your name"}}" required type="text" name="name" placeholder="{{t "Your name"}}">
+						<input class="contact-email contact-input global-input" aria-label="{{t "Your email address"}}" required type="email" name="email" placeholder="{{t "Your email address"}}">
+						<textarea class="contact-message global-textarea" aria-label="{{t "Your message"}}" required name="message" placeholder="{{t "Your message"}}"></textarea>
+						<button class="global-button" type="submit">{{t "Send message"}}</button>
+						<script>
+						const iTypedText = ["{{{t 'Let’s talk!'}}}"];
+						</script>
+					</form>
+				</div>
+			</div>
+			{{#if @site.description}}
+			<div class="custom-footer">
+				<a href="{{@site.url}}">{{@site.title}}.</a>
+				<span>{{@site.description}}.</span>
+			</div>
+			{{/if}}
+		</div>
+		{{/post}}
+	</div>
+	<script src="{{asset "js/global.js"}}"></script>
+	<script>document.addEventListener("DOMContentLoaded",function(){const a=document.body;a.classList.add("is-loaded")})</script>
+	{{ghost_foot}}
+</body>

@@ -1,0 +1,84 @@
+<div class="pinned-item global-item global-flex pinned-item-{{@number}}{{>colors_light}}{{>colors_dark}} {{post_class}}" style="margin-top:20px">
+	<a href="{{url}}" class="global-link" aria-label="{{^is "post"}}pinned{{else}}related{{/is}} {{title}}"></a>
+	  <div  style="display: flex; flex-direction:column; width:100%; ">
+        <div class="post-card-head header-color-1">
+            <div class="blog-left-box-inner">
+                <div>
+                    <div class="blog-left-box-inner-title" id="blog-id">
+                        New SaaS Platforms
+                    </div>
+
+                    {{#if published_at}}
+                    <div class="post-date ">
+                      {{date published_at format="MMMM, YYYY"}}
+
+                    </div>
+                    {{/if}}
+                </div>
+
+                <!-- SVG icons  -->
+                <div class="icon-grid">
+                    <div class="icon-row">
+                        <div class="icon-container"><img src="{{baseUrl}}/assets/images/postHeaderIcons/image1.svg" alt="Icon 1" class="card-icon"/></div> 
+                    </div>
+                    <div class="icon-row">
+                        <div class="icon-container"><img src="{{baseUrl}}/assets/images/postHeaderIcons/image2.svg" alt="Icon 2" class="card-icon"/></div>
+                        <div class="icon-container"> <img src="{{baseUrl}}/assets/images/postHeaderIcons/image 3.svg" alt="Icon 3" class="card-icon"/></div>
+                    </div>
+                    <div class="icon-row">
+                        <div class="icon-container"><img src="{{baseUrl}}/assets/images/postHeaderIcons/image4.svg" alt="Icon 4" class="card-icon" /></div>
+                        <div class="icon-container"><img src="{{baseUrl}}/assets/images/postHeaderIcons/image5.svg" alt="Icon 5" class="card-icon" /></div> 
+                         <div class="icon-container-last"><img src="{{baseUrl}}/assets/images/postHeaderIcons/10 new.svg" alt="Icon 5" class="card-icon" /></div> 
+                    </div>
+                </div>
+                <!-- End of SVG icons -->
+
+            </div>
+        </div>
+
+	{{^is "post"}}
+	<div class="global-label">
+		{{t "Pinned"}}
+	</div>
+	{{else}}
+	<div class="pinned-post-body">
+    <div class="post-card-body-header">
+	<div class="global-tags post-card-tag pinned-tag">
+		{{#if tags}}
+		{{#foreach tags limit="1"}}
+		<span>{{name}}</span>
+		{{/foreach}}
+		{{/if}}
+	</div>
+	<span class="post-read-time">{{reading_time minute=(t "1 minute read") minutes=(t "% minutes read")}}</span>
+    </div>
+
+
+	{{/is}}
+	<div class="pinned-content">
+		{{!-- <div class="pinned-meta global-meta">
+			{{t "by"}}
+			{{#has author="count:1"}}
+			{{authors}}
+			{{else has author="count:2"}}
+			{{authors separator=(t " & ")}}
+			{{else has author="count:>2"}}
+			{{authors limit="1"}}
+			{{t "and other authors"}}
+			{{/has}}
+		</div> --}}
+		<h3 class="pinned-title post-card-body-title">{{title}}</h3>
+	   {{#if custom_excerpt}}
+            <div class="loop-excerpt post-card-body-description">
+                {{{custom_excerpt}}}
+            </div>
+            {{/if}}
+	</div>
+	</div>
+		</div>
+	{{!-- {{#if feature_image}}
+	<div class="color-image global-image">
+		{{>images/feature_img_pinned}}
+	</div>
+	{{/if}} --}}
+</div>

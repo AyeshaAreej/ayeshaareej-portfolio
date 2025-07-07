@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="{{@site.locale}}"{{#match @custom.color_scheme "Dark"}} class="dark-mode"{{/match}}{{#match @custom.color_scheme "Auto"}} class="auto-dark-mode"{{/match}}>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>{{meta_title page=(t "meta-page")}}</title>
+		<meta name="HandheldFriendly" content="True">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		{{>services/google_fonts}}
+		<link rel="stylesheet" type="text/css" href="{{asset "css/screen.css"}}">
+		{{ghost_head}}
+	</head>
+	<body class="{{body_class}}{{#match @custom.layout "Big posts & Grid"}} global-grid{{/match}}{{#match @custom.layout "Grid & Big posts"}} global-grid-hero{{/match}}{{#match @custom.layout "Grid"}} global-grid global-grid-hero{{/match}}{{#if @custom.two_large_posts_in_a_grid_layout}} global-double{{/if}}{{#if @custom.color_label_on_the_left_side}} global-labels{{/if}}{{#if @custom.white_text_when_accent_color_is_dark}} global-white-text{{/if}}{{#get "tags" limit="1" filter="slug:hash-pinned-hero" as |tags|}}{{#tags}} global-pinned-hero{{/tags}}{{/get}}">
+		<div class="global-container">
+			{{!-- {{#is "index"}}
+			{{#if @site.cover_image}}
+			<div class="global-cover global-bg-image" style="background-image: url({{@site.cover_image}})"></div>
+			{{/if}}
+			{{else}}
+			{{{block "cover_image"}}}
+			{{/is}} --}}
+			{{>header}}
+			<div class="global-main">
+				{{{body}}}
+				{{#if @site.description}}
+				<div class="description-section global-flex">{{@site.description}}</div>
+				{{/if}}
+			</div>
+			{{>footer}}
+			{{>members/notifications}}
+		</div>
+		{{>search}}
+		{{#if pagination.pages}}
+		<script src="{{asset "js/index.js"}}"></script>
+		{{/if}}
+		{{#is "post, page"}}
+		<script src="{{asset "js/post.js"}}"></script>
+		{{/is}}
+        <script src="{{asset "js/global.js"}}"></script>
+		<script>document.addEventListener("DOMContentLoaded",function(){const a=document.body;a.classList.add("is-loaded")})</script>
+		{{{block "notifications_js"}}}
+		{{{block "membership_js"}}}
+		{{ghost_foot}}
+	</body>
+</html>

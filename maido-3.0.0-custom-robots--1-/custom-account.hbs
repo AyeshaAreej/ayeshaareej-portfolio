@@ -1,0 +1,134 @@
+{{!< default}}
+{{#post}}
+{{!-- {{#if feature_image}}
+<div class="archive-cover global-cover global-bg-image" style="background-image: url({{feature_image}})"></div>
+{{else if @site.cover_image}}
+<div class="global-cover global-bg-image" style="background-image: url({{@site.cover_image}})"></div>
+{{/if}} --}}
+{{#if @member.paid}}
+<div class="account-section archive-section global-section">
+    <div class="archive-wrap global-wrap">
+        <div class="archive-title-wrap">
+            <h1 class="archive-title">
+            {{#if @member.name}}
+            {{@member.name}}
+            {{else}}
+            {{t "Your account"}}
+            {{/if}}
+            </h1>
+            {{#foreach @member.subscriptions}}
+            {{#if cancel_at_period_end}}
+            <p class="account-subtitle">
+                <span>{{t "Your subscription will expire on"}} — {{date current_period_end format="DD MMMM YYYY"}}.</span> {{t "If you change your mind in the meantime you can turn auto-renew back on to continue your subscription."}}
+            </p>
+            {{else}}
+            <p class="account-subtitle">
+                {{t "Nice, you're a paying subscriber!"}} {{t "You've an active account with access to all areas. You're all set, but if you need any help, get in touch with us and we'd be happy to help."}}
+            </p>
+            {{/if}}
+            {{/foreach}}
+            {{#if custom_excerpt}}
+            <p class="account-excerpt archive-description">{{{custom_excerpt}}}</p>
+            {{/if}}
+            {{#foreach @member.subscriptions}}
+            <div class="subscriber-details">
+                <div class="global-flex">
+                    <div class="subscriber-detail-column one">
+                        <div>
+                            <label class="global-heading">{{t "Email address"}}</label>
+                            <span class="subscriber-content">{{@member.email}}</span>
+                        </div>
+                        <div>
+                            <label class="global-heading">{{t "Your plan"}}</label>
+                            <span class="subscriber-content">{{plan.nickname}} — {{price plan}}/{{plan.interval}}</span>
+                        </div>
+                    </div>
+                    <div class="subscriber-detail-column two">
+                        <div>
+                            <label class="global-heading">{{t "Card"}}</label>
+                            <span class="subscriber-content">**** **** **** {{default_payment_card_last4}}</span>
+                        </div>
+                        <div>
+                            <label class="global-heading">
+                                {{#if cancel_at_period_end}}
+                                {{t "Expires"}}
+                                {{else}}
+                                {{t "Next bill date"}}
+                                {{/if}}
+                            </label>
+                            <span class="subscriber-content">{{date current_period_end format="DD MMM YYYY"}}</span>
+                        </div>
+                    </div>
+                    <div class="subscriber-cancel">
+                        {{cancel_link class="subscriber-cancel-button global-button" errorClass="subscriber-cancel-error" cancelLabel=(t "Cancel subscription") continueLabel=(t "Continue subscription")}}
+                    </div>
+                    <div class="subscriber-detail-buttons">
+                        <a href="javascript:" data-portal="account/plans">{{t "Change plan"}}</a>
+                        <a href="javascript:" data-members-edit-billing>{{t "Edit billing info"}} <span>&rarr;</span></a>
+                    </div>
+                </div>
+            </div>
+            {{/foreach}}
+        </div>
+    </div>
+</div>
+{{#get "posts" limit="5" filter="visibility:[paid,tiers]" include="authors,tags,tiers" as |paid-posts|}}
+{{#if paid-posts}}
+<div class="account-loop loop-section global-section">
+    <div class="loop-wrap global-wrap global-flex loop-archive global-grid">
+        <span class="membership-heading global-heading">
+            {{t "The latest posts only for paying subscribers"}}
+        </span>
+        {{#foreach paid-posts visibility="paid,tiers"}}
+        <article class="loop-item global-item global-flex is-archive{{#if feature_image}} is-image{{/if}}{{>colors_light}}{{>colors_dark}} {{post_class}}">
+            {{>loop_item}}
+        </article>
+        {{/foreach}}
+    </div>
+</div>
+{{/if}}
+{{/get}}
+{{else if @member}}
+<div class="account-section archive-section global-section">
+    <div class="archive-wrap global-wrap">
+        <div class="archive-title-wrap">
+            <h1 class="archive-title">
+            {{#if @member.name}}
+            {{@member.name}}
+            {{else}}
+            {{t "Your account"}}
+            {{/if}}
+            </h1>
+            <p class="account-subtitle">
+                {{t "Currently, you're not a paying subscriber."}} {{t "You've an active account with access to posts for subscribers only. Upgrade your account and get access to the full library of posts."}}
+            </p>
+            {{#if custom_excerpt}}
+            <p class="account-excerpt archive-description">{{{custom_excerpt}}}</p>
+            {{/if}}
+            <div class="subscriber-details">
+                <div class="global-flex">
+                    <div class="subscriber-detail-column one">
+                        <div>
+                            <label class="global-heading">{{t "Email address"}}</label>
+                            <span class="subscriber-content">{{@member.email}}</span>
+                        </div>
+                    </div>
+                    <div class="subscriber-detail-column two">
+                        <div>
+                            <label class="global-heading">{{t "Your plan"}}</label>
+                            <span class="subscriber-content">{{t "Free"}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="loop-section global-section">
+    {{>members/tiers}}
+</div>
+{{else}}
+<script>window.addEventListener("load",function(event){window.location='{{@site.url}}'})</script>
+{{/if}}
+{{/post}}
+<script>document.addEventListener("DOMContentLoaded",function(){const body=document.body;body.classList.add("is-account")})</script>

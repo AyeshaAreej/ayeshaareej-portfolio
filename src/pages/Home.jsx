@@ -22,7 +22,7 @@ const Home = () => {
 
               <h1 className="heading-name">
                 I'M
-                <strong className="main-name"> Md Abu Bakkar Siddiqe Sajib</strong>
+                <strong className="main-name"> Ayesha Areej</strong>
               </h1>
 
               <div style={{ padding: 50, textAlign: "left" }}>
@@ -35,7 +35,7 @@ const Home = () => {
                 src={homeLogo}
                 alt="home pic"
                 className="img-fluid"
-                style={{ maxHeight: "450px" }}
+                style={{ maxHeight: "500px" }}
               />
             </Col>
           </Row>

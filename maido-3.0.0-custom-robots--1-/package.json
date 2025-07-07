@@ -1,0 +1,75 @@
+{
+    "name": "maido-custom-robots",
+    "demo": "https://maido.fueko.net",
+    "version": "3.0.0",
+    "author": {
+        "name": "fueko",
+        "email": "hello@fueko.net",
+        "url": "https://fueko.net"
+    },
+    "keywords": [
+        "ghost-theme"
+    ],
+    "config": {
+        "posts_per_page": 6,
+        "card_assets": {
+            "exclude": ["bookmark", "gallery", "blockquote"]
+        },
+        "custom": {
+            "color_scheme": {
+                "type": "select",
+                "options": ["Light", "Dark", "Auto"],
+                "default": "Light"
+            },
+            "white_text_when_accent_color_is_dark": {
+                "type": "boolean",
+                "default": false
+            },
+            "content_api_key_for_search": {
+                "type": "text"
+            },
+            "contact_form_endpoint": {
+                "type": "text"
+            },
+            "footer_copyright": {
+                "type": "text"
+            },
+            "layout": {
+                "type": "select",
+                "options": ["Big posts", "Big posts & Grid", "Grid & Big posts", "Grid"],
+                "default": "Big posts",
+                "group": "homepage"
+            },
+            "two_large_posts_in_a_grid_layout": {
+                "type": "boolean",
+                "default": false,
+                "group": "homepage"
+            },
+            "hero_title": {
+                "type": "text",
+                "group": "homepage"
+            },
+            "hero_description": {
+                "type": "text",
+                "group": "homepage"
+            },
+            "hero_cta_name": {
+                "type": "text",
+                "group": "homepage"
+            },
+            "hero_cta_url": {
+                "type": "text",
+                "group": "homepage"
+            },
+            "color_label_on_the_left_side": {
+                "type": "boolean",
+                "default": false,
+                "group": "post"
+            },
+            "disqus_shortname": {
+                "type": "text",
+                "group": "post"
+            }
+        }
+    }
+}

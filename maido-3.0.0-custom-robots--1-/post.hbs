@@ -1,0 +1,85 @@
+{{!< default}}
+{{!-- {{#contentFor "cover_image"}}
+{{#if @site.cover_image}}
+<div class="global-cover global-bg-image" style="background-image: url({{@site.cover_image}})"></div>
+{{/if}}
+{{/contentFor}} --}}
+{{#post}}
+<span class="global-color-label{{>colors_light}}{{>colors_dark}}"></span>
+
+<article class="post-section">
+	<div class="post-header global-flex{{#if feature_image}} is-image{{/if}}" style="display:flex;flex-direction:row;align-items:baseline">
+		{{!-- {{#if feature_image}}
+		<div class="post-image-wrap global-image">
+			{{>images/feature_img_post}}
+		</div>
+		{{/if}} --}}
+
+		<div class="post-title-wrap global-flex" style=" max-width:797px">
+			<div class="post-title-content">
+				{{#if tags}}
+				{{#foreach tags}}
+				{{#if @first}}
+				<div class="post-tags global-tags">
+					{{/if}}
+					{{/foreach}}
+					{{tags separator=""}}
+					{{#foreach tags}}
+					{{#if @first}}
+				</div>
+				{{/if}}
+				{{/foreach}}
+				{{/if}}
+				<h1 class="post-title">{{title}}</h1>
+				<div class="post-meta global-meta">
+					<time datetime="{{date format="YYYY-MM-DD"}}"> {{date published_at timeago="true"}}</time>
+					{{t "by"}}
+					{{#has author="count:1"}}
+					{{authors}}
+					{{else has author="count:2"}}
+					{{authors separator=(t " & ")}}
+					{{else has author="count:3"}}
+					{{authors to="2"}} {{t "and"}} {{authors from="3"}}
+					{{else has author="count:>3"}}
+					{{authors}}
+					{{/has}}
+					<span>∙ {{reading_time minute=(t "1 minute read") minutes=(t "% minutes read")}}</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="post-content{{^if access}} members-content{{/if}}">
+		{{#if access}}
+      {{!-- post component --}}
+	  <p style="color:blue">box</p>
+
+		{{content}}
+		{{!-- {{>post_share}} --}}
+		{{else}}
+		{{#if html}}
+		<div class="members-teaser">
+			{{{html}}}
+		</div>
+		{{/if}}
+		{{>members/cta}}
+		{{/if}}
+	</div>
+
+</article>
+
+
+{{#if access}}
+<div id="indicator" class="post-indicator"></div>
+{{/if}}
+{{>post_related}}
+{{!-- {{>post_nextprev}} --}}
+<div class="comments-section global-section">
+	<div class="comments-wrap">
+		<div class="comments-content">
+			{{#if access}}
+			{{>services/disqus}}
+			{{/if}}
+		</div>
+	</div>
+</div>
+{{/post}}
