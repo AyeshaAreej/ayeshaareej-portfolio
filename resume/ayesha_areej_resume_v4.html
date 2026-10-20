@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayesha Areej – Resume</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1e293b;
+            --accent: #2563eb;
+            --text: #334155;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --bg-sidebar: #f8fafc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            background: #f1f5f9;
+            line-height: 1.35;
+        }
+
+        .page {
+            width: 210mm;
+            height: 297mm;
+            background: white;
+            padding: 10mm;
+            margin: 5mm auto;
+            position: relative;
+            display: flex;
+            gap: 8mm;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        @media print {
+            body {
+                background: none;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+            }
+
+            .page {
+                margin: 0;
+                box-shadow: none;
+                width: 210mm;
+                height: 297mm;
+                border: none;
+                page-break-after: always;
+                overflow: hidden;
+            }
+
+            .page:last-of-type {
+                page-break-after: avoid;
+            }
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 62mm;
+            flex-shrink: 0;
+            background: var(--bg-sidebar);
+            margin: -10mm 0 -10mm -10mm;
+            padding: 10mm 8mm;
+            border-right: 1px solid var(--border);
+        }
+
+        .profile-img {
+            width: 44mm;
+            height: 44mm;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent);
+            margin-bottom: 6mm;
+        }
+
+        .sidebar-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 10pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--primary);
+            margin: 5mm 0 2mm 0;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 1mm;
+        }
+
+        .contact-item {
+            font-size: 8.5pt;
+            margin-bottom: 1.5mm;
+            color: var(--text);
+        }
+
+        .skill-group {
+            margin-bottom: 3mm;
+        }
+
+        .skill-label {
+            font-size: 7.5pt;
+            font-weight: 700;
+            color: var(--text-light);
+            text-transform: uppercase;
+            margin-bottom: 1mm;
+            display: block;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2mm;
+        }
+
+        .tag {
+            font-size: 7.2pt;
+            background: white;
+            border: 1px solid var(--border);
+            padding: 0.5mm 2mm;
+            border-radius: 3px;
+        }
+
+        /* Main Content */
+        .main {
+            flex: 1;
+        }
+
+        .header {
+            margin-bottom: 5mm;
+        }
+
+        .name {
+            font-family: 'Outfit', sans-serif;
+            font-size: 28pt;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -1px;
+            line-height: 1;
+        }
+
+        .tagline {
+            font-size: 13pt;
+            font-weight: 600;
+            color: var(--accent);
+            margin-top: 1mm;
+        }
+
+        .summary {
+            font-size: 9pt;
+            color: var(--text);
+            margin-top: 2mm;
+            text-align: justify;
+        }
+
+        .section-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 12pt;
+            font-weight: 700;
+            color: var(--primary);
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 0.5mm;
+            margin: 4mm 0 3mm 0;
+            display: inline-block;
+        }
+
+        .exp-item {
+            margin-bottom: 4mm;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .exp-role {
+            font-size: 10pt;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .exp-company {
+            font-size: 9.5pt;
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .exp-date {
+            font-size: 8pt;
+            font-weight: 500;
+            color: var(--text-light);
+        }
+
+        .exp-bullets {
+            list-style: none;
+            margin-top: 1mm;
+            font-size: 8.8pt;
+        }
+
+        .exp-bullets li {
+            position: relative;
+            padding-left: 4mm;
+            margin-bottom: 0.5mm;
+        }
+
+        .exp-bullets li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .project-item {
+            margin-bottom: 3.5mm;
+        }
+
+        .project-name {
+            font-size: 9.5pt;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5mm;
+        }
+
+        .project-desc {
+            font-size: 8.5pt;
+            color: var(--text);
+            line-height: 1.3;
+        }
+
+        .project-tags {
+            margin-top: 1mm;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1mm;
+        }
+
+        .p-tag {
+            font-size: 7pt;
+            font-weight: 600;
+            background: #eff6ff;
+            color: #1d4ed8;
+            padding: 0.3mm 1.5mm;
+            border-radius: 3px;
+        }
+
+        .edu-item {
+            margin-bottom: 2.5mm;
+        }
+
+        .edu-school {
+            font-size: 9pt;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .edu-degree {
+            font-size: 8.5pt;
+            color: var(--text);
+        }
+
+        .cert-item {
+            display: flex;
+            gap: 2mm;
+            margin-bottom: 1.5mm;
+        }
+
+        .cert-dot {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--accent);
+            margin-top: 1.5mm;
+            flex-shrink: 0;
+        }
+
+        .cert-name {
+            font-size: 8.5pt;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .cert-issuer {
+            font-size: 8pt;
+            color: var(--text-light);
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 8mm;
+            right: 10mm;
+            font-size: 7.5pt;
+            color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- PAGE 1 -->
+    <div class="page">
+        <div class="sidebar">
+            <img src="profielpic.png" alt="Ayesha Areej" class="profile-img">
+
+            <div class="sidebar-title">Contact</div>
+            <div class="contact-info">
+                <div class="contact-item">Islamabad, Pakistan</div>
+                <div class="contact-item">Enumsol (Current)</div>
+                <div class="contact-item">linkedin.com/in/ayesha-areej-b44834232</div>
+                <div class="contact-item">github.com/AyeshaAreej</div>
+            </div>
+
+            <div class="sidebar-title">Education</div>
+            <div class="edu-item">
+                <div class="edu-school">NUST</div>
+                <div class="edu-degree">M.S. Computer Science</div>
+            </div>
+            <div class="edu-item">
+                <div class="edu-school">Sukkur IBA University</div>
+                <div class="edu-degree">B.S. Software Engineering</div>
+            </div>
+
+            <div class="sidebar-title">Skills</div>
+            <div class="skill-group">
+                <span class="skill-label">Frontend</span>
+                <div class="tags">
+                    <span class="tag">React</span><span class="tag">Next.js</span><span class="tag">Vue.js</span><span
+                        class="tag">lovable.dev</span><span class="tag">JS</span><span class="tag">Tailwind</span><span
+                        class="tag">Nuxt</span><span class="tag">Django</span><span class="tag">Bootstrap</span><span
+                        class="tag">MUI</span><span class="tag">TS</span><span class="tag">shadcn</span>
+                </div>
+            </div>
+            <div class="skill-group">
+                <span class="skill-label">Backend & Mobile</span>
+                <div class="tags">
+                    <span class="tag">Node.js</span><span class="tag">Express</span><span
+                        class="tag">FastAPI</span><span class="tag">Strapi</span><span class="tag">Prisma</span><span
+                        class="tag">Redux</span><span class="tag">React Native</span><span class="tag">Expo</span>
+                </div>
+            </div>
+            <div class="skill-group">
+                <span class="skill-label">AI & Automation</span>
+                <div class="tags">
+                    <span class="tag">n8n</span><span class="tag">Make</span><span class="tag">Zapier</span><span
+                        class="tag">Flowise</span><span class="tag">OpenAI</span>
+                </div>
+            </div>
+            <div class="skill-group">
+                <span class="skill-label">Databases & Cloud</span>
+                <div class="tags">
+                    <span class="tag">MongoDB</span><span class="tag">PostgreSQL</span><span
+                        class="tag">MySQL</span><span class="tag">Redis</span><span class="tag">Supabase</span><span
+                        class="tag">Firebase</span><span class="tag">AWS EC2</span><span class="tag">AWS RDS</span>
+                </div>
+            </div>
+            <div class="skill-group">
+                <span class="skill-label">Tools</span>
+                <div class="tags">
+                    <span class="tag">Docker</span><span class="tag">Git</span><span class="tag">Jira</span><span
+                        class="tag">Slack</span><span class="tag">Figma</span><span class="tag">Swagger</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="main">
+            <div class="header">
+                <h1 class="name">Ayesha Areej</h1>
+                <div class="tagline">AI Automation & Full-Stack Developer</div>
+                <p class="summary">
+                    Software Engineer specializing in full-stack development and <strong>AI-driven workflow
+                        automations</strong>. I architect scalable applications and intelligent pipelines that eliminate
+                    manual effort to drive efficiency. Passionate about shipping robust products that create tangible
+                    business impact.
+                </p>
+            </div>
+
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="exp-item">
+                <div class="exp-header">
+                    <span class="exp-role">Software Engineer</span>
+                    <span class="exp-date">Feb 2023 – Present</span>
+                </div>
+                <div class="exp-company">Enumsol, Islamabad, PK</div>
+                <ul class="exp-bullets">
+                    <li>Contribute to the core frontend development of corporate website ensuring responsive UX.</li>
+                    <li>Implemented complete architecture of a complex <strong>Norway Research Project</strong>.</li>
+                    <li>Developed high-performance <strong>Food Delivery Mobile App</strong> using React Native and
+                        Tailwind CSS.</li>
+                    <li>Architected workflow automations utilizing <strong>n8n, Zapier, Make, and Flowise</strong>.</li>
+                </ul>
+            </div>
+
+            <div class="exp-item">
+                <div class="exp-header">
+                    <span class="exp-role">Software Engineer</span>
+                    <span class="exp-date">May 2023 – Aug 2023</span>
+                </div>
+                <div class="exp-company">Alta Tech Mark</div>
+                <ul class="exp-bullets">
+                    <li>Developed IoT-connected mobile application for plant management with automated watering.</li>
+                    <li>Engineered thermal image social media application for specialized image sharing.</li>
+                </ul>
+            </div>
+
+            <div class="exp-item">
+                <div class="exp-header">
+                    <span class="exp-role">Full-stack Developer (Intern)</span>
+                    <span class="exp-date">Oct 2022 – Jan 2023</span>
+                </div>
+                <div class="exp-company">MayaLogic</div>
+                <ul class="exp-bullets">
+                    <li>Developed tailored <strong>ERP system for Sun Tech</strong> streamlining inventory, finance, and
+                        HR.</li>
+                    <li>Built job hunting platform utilizing <strong>MERN stack</strong> and Tailwind CSS.</li>
+                </ul>
+            </div>
+
+            <h2 class="section-title">Key Client Projects</h2>
+            <div class="project-item">
+                <div class="project-name">🏢 SUNT (ERP System)</div>
+                <div class="project-desc">Developed a tailored ERP system for Sun Tech, streamlining business operations
+                    with automated workflows, real-time data tracking, and integrated reporting.</div>
+                <div class="project-tags">
+                    <span class="p-tag">Python</span><span class="p-tag">PostgreSQL</span><span
+                        class="p-tag">Docker</span>
+                </div>
+            </div>
+            <div class="project-item">
+                <div class="project-name">🤖 Generate Genie</div>
+                <div class="project-desc">AI-powered automation platform cutting manual effort by 40%. Features
+                    real-time data integration, custom APIs, and an intuitive dashboard.</div>
+                <div class="project-tags">
+                    <span class="p-tag">Next.js</span><span class="p-tag">Supabase</span><span
+                        class="p-tag">OpenAI</span>
+                </div>
+            </div>
+            <div class="project-item">
+                <div class="project-name">🛡️ Docuguardian</div>
+                <div class="project-desc">Engineered a secure document management system for seamless file storage and
+                    sharing with integrated advanced encryption protocols.</div>
+                <div class="project-tags">
+                    <span class="p-tag">Next.js</span><span class="p-tag">Node.js</span><span
+                        class="p-tag">Airtable</span>
+                </div>
+            </div>
+            <div class="project-item">
+                <div class="project-name">💻 Toksta</div>
+                <div class="project-desc">High-performance frontend for enhanced user engagement featuring intuitive
+                    dashboard and responsive design across all devices.</div>
+                <div class="project-tags">
+                    <span class="p-tag">React</span><span class="p-tag">Next.js</span><span class="p-tag">Node.js</span>
+                </div>
+            </div>
+
+            <div class="footer">Page 1 of 2</div>
+        </div>
+    </div>
+
+    <!-- PAGE 2 -->
+    <div class="page">
+        <div class="sidebar">
+            <div class="sidebar-title">Certifications</div>
+            <div class="cert-item">
+                <div class="cert-dot"></div>
+                <div>
+                    <div class="cert-name">n8n Certified Workflow Prof.</div>
+                    <div class="cert-issuer">2025</div>
+                </div>
+            </div>
+            <div class="cert-item">
+                <div class="cert-dot"></div>
+                <div>
+                    <div class="cert-name">Full Stack React</div>
+                    <div class="cert-issuer">Coursera · 2022</div>
+                </div>
+            </div>
+            <div class="cert-item">
+                <div class="cert-dot"></div>
+                <div>
+                    <div class="cert-name">Advanced SQL & DB</div>
+                    <div class="cert-issuer">Coursera · 2020</div>
+                </div>
+            </div>
+
+            <div class="sidebar-title">Achievements</div>
+            <div class="cert-item">
+                <div class="cert-dot"></div>
+                <div>
+                    <div class="cert-name">Talent Hunt Scholarship</div>
+                    <div class="cert-issuer">Sukkur IBA (2018-2022)</div>
+                </div>
+            </div>
+            <div class="cert-item">
+                <div class="cert-dot"></div>
+                <div>
+                    <div class="cert-name">IEEE PSYWSC'19 Organizer</div>
+                </div>
+            </div>
+            <div class="cert-item">
+                <div class="cert-dot"></div>
+                <div>
+                    <div class="cert-name">Student of The Year Award</div>
+                    <div class="cert-issuer">APS Shikarpur (2017)</div>
+                </div>
+            </div>
+
+            <div class="sidebar-title">Soft Skills</div>
+            <div class="tags">
+                <span class="tag">Problem Solver</span><span class="tag">Team Work</span><span
+                    class="tag">Communication</span>
+            </div>
+        </div>
+
+        <div class="main">
+            <h2 class="section-title" style="margin-top: 0;">Client Projects</h2>
+            <div class="project-item">
+                <div class="project-name">⚙️ Optiwork</div>
+                <div class="project-desc">Integrated AI-driven workforce management system with predictive analytics and
+                    automated scheduling, reducing inefficiencies by 40%.</div>
+                <div class="project-tags"><span class="p-tag">Next.js</span><span class="p-tag">OpenAI</span></div>
+            </div>
+            <div class="project-item">
+                <div class="project-name">📱 Food Delivery App</div>
+                <div class="project-desc">Cross-platform mobile application with real-time updates for browsing menus,
+                    customizing orders, and managing carts.</div>
+                <div class="project-tags"><span class="p-tag">React Native</span><span class="p-tag">Tailwind</span>
+                </div>
+            </div>
+            <div class="project-item">
+                <div class="project-name">🚗 CarSupportGuys</div>
+                <div class="project-desc">Comprehensive car service platform connecting users with expert mechanics in
+                    real-time with mileage tracking and live chat.</div>
+                <div class="project-tags"><span class="p-tag">Nuxt.js</span><span class="p-tag">Vue.js</span></div>
+            </div>
+
+            <h2 class="section-title">Personal Projects</h2>
+            <div class="project-item">
+                <div class="project-name">🤖 Emotion-Aware Chatbot using Fine-Tuned Transformer Models</div>
+                <div class="project-desc">Developed an NLP-based emotion-aware chatbot by fine-tuning a transformer
+                    model (BERT/DistilBERT) on the Hugging Face Emotion dataset; performed preprocessing, EDA, and
+                    tokenization, trained using the Trainer API, evaluated with metrics.</div>
+                <div class="project-tags"><span class="p-tag">BERT/DistilBERT</span><span class="p-tag">Hugging
+                        Face</span></div>
+            </div>
+            <div class="project-item">
+                <div class="project-name">🚀 CodeDoc Genie</div>
+                <div class="project-desc">Built an AI-powered Code Documentation Assistant using AWS (Lambda, API
+                    Gateway, Amazon Bedrock – Titan Text Lite), enabling automated generation of code documentation and
+                    inline comments.</div>
+                <div class="project-tags"><span class="p-tag">AWS</span><span class="p-tag">Amazon Bedrock</span><span
+                        class="p-tag">Titan Text Lite</span></div>
+            </div>
+            <div class="project-item">
+                <div class="project-name">🐦 BlueJay Event Planner</div>
+                <div class="project-desc">Developed a comprehensive event planning platform featuring both web and
+                    mobile applications for seamless event coordination and management.</div>
+                <div class="project-tags"><span class="p-tag">React</span><span class="p-tag">React Native</span><span
+                        class="p-tag">Node.js</span></div>
+            </div>
+            <div class="project-item">
+                <div class="project-name">🎬 Netflix Clone</div>
+                <div class="project-desc">A full-stack web application replicating core Netflix features including user
+                    authentication, movie browsing, and a responsive UI.</div>
+                <div class="project-tags"><span class="p-tag">MERN Stack</span><span class="p-tag">MongoDB</span><span
+                        class="p-tag">React</span></div>
+            </div>
+            <div class="project-item">
+                <div class="project-name">🏥 Hospital Management System</div>
+                <div class="project-desc">A robust desktop application designed for efficient hospital record
+                    management, patient tracking, and administrative control.</div>
+                <div class="project-tags"><span class="p-tag">C#</span><span class="p-tag">SQL Server</span><span
+                        class="p-tag">Desktop App</span></div>
+            </div>
+            <div class="project-item">
+                <div class="project-name">🤖 Ozbot Robot Navigation</div>
+                <div class="project-desc">Programmed an Ozbot Robot to execute complex collision avoidance algorithms
+                    and pathfinding using sensor-based navigation.</div>
+                <div class="project-tags"><span class="p-tag">Robotics</span><span class="p-tag">Ozbot</span><span
+                        class="p-tag">C++</span></div>
+            </div>
+            <div class="project-item">
+                <div class="project-name">🎥 Movie Genre Prediction</div>
+                <div class="project-desc">A machine learning project utilizing NLP techniques to predict movie genres
+                    based on textual features and metadata.</div>
+                <div class="project-tags"><span class="p-tag">Python</span><span class="p-tag">Machine
+                        Learning</span><span class="p-tag">NLP</span></div>
+            </div>
+
+            <div class="footer">Page 2 of 2</div>
+        </div>
+    </div>
+
+</body>
+
+</html>

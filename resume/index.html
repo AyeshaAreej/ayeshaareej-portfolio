@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ayesha Areej – Resume</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet" />
+    <style>
+        :root {
+            --accent: #6c63ff;
+            --accent-light: #ede9ff;
+            --accent-dark: #4b44cc;
+            --dark: #1a1a2e;
+            --mid: #2e2e4e;
+            --text: #2d2d2d;
+            --muted: #6b7280;
+            --border: #e5e7eb;
+            --bg: #f8f7ff;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            print-color-adjust: exact;
+            -webkit-print-color-adjust: exact;
+        }
+
+        /* ─── HEADER ─── */
+        .header {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--mid) 55%, #3d3580 100%);
+            color: white;
+            padding: 35px 50px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -60px;
+            right: -60px;
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            background: rgba(108, 99, 255, .18);
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -40px;
+            left: 30%;
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background: rgba(108, 99, 255, .12);
+        }
+
+        .header-inner {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .name-block h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            line-height: 1.05;
+            /* background: linear-gradient(135deg, #fff 40%, #c4bfff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent; */
+        }
+
+        .headline {
+            margin-top: 10px;
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: #c4bfff;
+            letter-spacing: 0.3px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: auto auto;
+            gap: 8px 28px;
+            color: rgba(255, 255, 255, .80);
+            text-align: left;
+        }
+
+        .contact-grid a {
+            color: #c4bfff;
+            text-decoration: none;
+        }
+
+        .contact-grid span {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 6px;
+        }
+
+        .icon {
+            font-style: normal;
+            font-size: 1rem;
+        }
+
+        /* ─── LAYOUT ─── */
+        .body-wrap {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 0;
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--white);
+            box-shadow: 0 20px 80px rgba(108, 99, 255, .12);
+        }
+
+        .main-col {
+            padding: 44px 48px;
+            border-right: 1px solid var(--border);
+        }
+
+        .side-col {
+            padding: 44px 32px;
+            background: #f4f2ff;
+        }
+
+        /* ─── SECTION TITLES ─── */
+        .section {
+            margin-bottom: 36px;
+        }
+
+        .section-title {
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-light), transparent);
+            border-radius: 99px;
+        }
+
+        /* ─── SUMMARY ─── */
+        .summary p {
+            font-size: 0.93rem;
+            line-height: 1.75;
+            color: #444;
+        }
+
+        /* ─── EXPERIENCE ─── */
+        .exp-item {
+            margin-bottom: 28px;
+            position: relative;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 6px;
+            flex-wrap: wrap;
+        }
+
+        .exp-role {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .exp-company {
+            font-size: 0.88rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .exp-date {
+            font-size: 0.78rem;
+            color: var(--muted);
+            font-weight: 500;
+            white-space: nowrap;
+            background: var(--accent-light);
+            padding: 3px 10px;
+            border-radius: 99px;
+        }
+
+        .exp-bullets {
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        .exp-bullets li {
+            font-size: 0.88rem;
+            line-height: 1.65;
+            color: #444;
+            padding-left: 16px;
+            position: relative;
+            margin-bottom: 6px;
+        }
+
+        .exp-bullets li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-size: 0.8rem;
+            top: 2px;
+        }
+
+        strong {
+            /* color: var(--dark); */
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* ─── PROJECTS ─── */
+        .project-card {
+            background: linear-gradient(135deg, #fafaff, #f0eeff);
+            border: 1px solid #ddd8ff;
+            border-left: 3px solid var(--accent);
+            border-radius: 8px;
+            padding: 14px 16px;
+            margin-bottom: 14px;
+        }
+
+        .project-name {
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 4px;
+        }
+
+        .project-desc {
+            font-size: 0.84rem;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .project-tags {
+            margin-top: 8px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .tag {
+            font-size: 0.72rem;
+            font-weight: 600;
+            background: var(--accent-light);
+            color: var(--accent-dark);
+            padding: 2px 9px;
+            border-radius: 99px;
+        }
+
+        .project-card.compact-card {
+            padding: 10px 14px;
+            margin-bottom: 10px;
+        }
+
+        .project-card.compact-card .project-name {
+            font-size: 0.88rem;
+            margin-bottom: 2px;
+        }
+
+        .project-card.compact-card .project-desc {
+            font-size: 0.82rem;
+            line-height: 1.45;
+        }
+
+        .project-card.compact-card .project-tags {
+            margin-top: 6px;
+            gap: 5px;
+        }
+
+        .project-card.compact-card .tag {
+            font-size: 0.68rem;
+            padding: 2px 8px;
+        }
+
+        /* ─── SIDEBAR: SKILLS ─── */
+        .skill-group {
+            margin-bottom: 22px;
+        }
+
+        .skill-group-label {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--accent-dark);
+            margin-bottom: 8px;
+        }
+
+        .skill-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .chip {
+            font-size: 0.78rem;
+            font-weight: 500;
+            background: white;
+            color: var(--text);
+            border: 1px solid #d5d0f5;
+            padding: 4px 11px;
+            border-radius: 99px;
+            transition: background .2s;
+        }
+
+        /* ─── SIDEBAR: EDUCATION ─── */
+        .edu-item {
+            margin-bottom: 20px;
+        }
+
+        .edu-school {
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .edu-degree {
+            font-size: 0.82rem;
+            color: var(--muted);
+            margin-top: 2px;
+        }
+
+        .edu-date {
+            font-size: 0.76rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-top: 4px;
+        }
+
+        /* ─── SIDEBAR: CERTS ─── */
+        .cert-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+
+        .cert-dot {
+            width: 8px;
+            height: 8px;
+            min-width: 8px;
+            border-radius: 50%;
+            background: var(--accent);
+            margin-top: 5px;
+        }
+
+        .cert-name {
+            font-size: 0.83rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .cert-issuer {
+            font-size: 0.77rem;
+            color: var(--muted);
+            margin-top: 1px;
+        }
+
+        /* ─── SIDEBAR: LANGUAGES ─── */
+        .lang-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .lang-name {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .lang-level {
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--accent);
+            background: var(--accent-light);
+            padding: 2px 9px;
+            border-radius: 99px;
+        }
+
+        /* ─── PRINT ─── */
+        @media print {
+            body {
+                background: white;
+            }
+
+            .body-wrap {
+                box-shadow: none;
+                max-width: 100%;
+            }
+
+            .header {
+                padding: 36px 48px 32px;
+            }
+        }
+
+        @media (max-width: 720px) {
+            .body-wrap {
+                grid-template-columns: 1fr;
+            }
+
+            .main-col {
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .header {
+                padding: 36px 28px 30px;
+            }
+
+            .header-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .contact-grid {
+                text-align: left;
+            }
+
+            .contact-grid span {
+                justify-content: flex-start;
+            }
+
+            .main-col {
+                padding: 32px 24px;
+            }
+
+            .side-col {
+                padding: 32px 24px;
+            }
+
+            .name-block h1 {
+                font-size: 2.2rem;
+            }
+
+            @media print {
+                @page {
+                    margin: 0;
+                    size: auto;
+                }
+
+                body {
+                    margin: 0;
+                    padding: 0;
+                    background: white;
+                    -webkit-print-color-adjust: exact;
+                    print-color-adjust: exact;
+                }
+
+                #resume-document,
+                #resume-document>div {
+                    max-width: 100% !important;
+                    width: 100% !important;
+                    margin: 0 !important;
+                }
+
+                .body-wrap {
+                    max-width: 100% !important;
+                    margin: 0 !important;
+                    box-shadow: none !important;
+                }
+
+                .header {
+                    padding: 30px 40px 25px !important;
+                }
+
+                .main-col {
+                    padding: 25px 35px !important;
+                }
+
+                .side-col {
+                    padding: 25px 35px !important;
+                }
+
+                .section {
+                    margin-bottom: 20px !important;
+                }
+
+                .section-title {
+                    font-size: 1.15rem !important;
+                    margin-bottom: 14px !important;
+                }
+
+                .exp-item {
+                    margin-bottom: 14px !important;
+                }
+
+                .exp-bullets li {
+                    margin-bottom: 4px !important;
+                    font-size: 0.85rem !important;
+                    line-height: 1.5 !important;
+                }
+
+                .project-card {
+                    padding: 10px 14px !important;
+                    margin-bottom: 10px !important;
+                }
+
+                .project-card.compact-card {
+                    padding: 8px 12px !important;
+                    margin-bottom: 0 !important;
+                }
+
+                .cert-item {
+                    margin-bottom: 10px !important;
+                }
+
+                .skill-group {
+                    margin-bottom: 16px !important;
+                }
+
+                .name-block h1 {
+                    font-size: 2.6rem !important;
+                    margin-bottom: 2px !important;
+                }
+
+                .headline {
+                    font-size: 1.1rem !important;
+                    margin-bottom: 10px !important;
+                }
+
+                p {
+                    font-size: 0.9rem !important;
+                    line-height: 1.5 !important;
+                }
+            }
+    </style>
+</head>
+
+<body>
+
+
+    <div id="resume-document">
+        <div style="max-width:1000px;margin:0 auto;">
+            <div class="header" style="padding-bottom: 24px;">
+                <div class="header-inner" style="display: flex; flex-direction: column; gap: 24px;">
+
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 40px;">
+                        <div class="name-block" style="flex: 1; text-align: left;">
+                            <h1 style="font-size: 2.8rem; margin-bottom: 5px; color: white;">Ayesha Areej</h1>
+                            <p class="headline" style="color: #64ffda; font-size: 1.2rem; margin-bottom: 16px;">
+                                AI Automation &amp; Full-Stack Developer</p>
+                            <p style="color: rgba(255, 255, 255, 0.9); font-size: 0.95rem; line-height: 1.6;">
+                                Software Engineer specializing in full-stack web/mobile development and
+                                <strong>AI-driven workflow automations</strong>. Proficient in various frontend & bakend
+                                frameworks. I architect scalable applications and intelligent pipelines that eliminate
+                                manual effort to drive efficiency. Passionate about shipping robust products that create
+                                tangible business impact.
+                            </p>
+                        </div>
+                        <div class="profile-img-wrap"
+                            style="width:140px; height:140px; border-radius:50%; overflow:hidden; background:transparent; flex-shrink:0; display:flex; align-items:center; justify-content:center; position:relative; border: 4px solid #64ffda;">
+                            <img id="profile-pic" src="profielpic.png" alt="Ayesha Areej"
+                                style="width:100%; height:100%; object-fit:cover; border-radius:50%; display:block;">
+                        </div>
+                    </div>
+
+                    <div style="background: rgba(0,0,0,0.15); padding: 20px 25px; border-radius: 8px;">
+                        <div class="contact-grid"
+                            style="display: flex; gap: 40px; font-size: 0.9rem; text-align: left;">
+                            <div style="display: flex; flex-direction: row; gap: 12px; flex: 1;">
+                                <span style="display: flex; align-items: center; gap: 10px;">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="#64ffda">
+                                        <path
+                                            d="M8 0a5.5 5.5 0 00-5.5 5.5c0 3.4 4.86 9.87 5.17 10.28a.42.42 0 00.66 0c.31-.41 5.17-6.88 5.17-10.28A5.5 5.5 0 008 0zm0 8a2.5 2.5 0 110-5 2.5 2.5 0 010 5z">
+                                        </path>
+                                    </svg>
+                                    Islamabad, Pakistan
+                                </span>
+
+
+                                <span style="display: flex; align-items: center; gap: 10px;">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="#64ffda">
+                                        <path
+                                            d="M13 5V3c0-1.1-.9-2-2-2H5C3.9 1 3 1.9 3 3v2H0v9c0 .55.45 1 1 1h14c.55 0 1-.45 1-1V5h-3zm-8-2h6v2H5V3zm9 11H2V7h12v7z">
+                                        </path>
+                                    </svg>
+                                    Enumsol (Current)
+                                </span>
+                                <span style="display: flex; align-items: center; gap: 10px;">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="#64ffda">
+                                        <path
+                                            d="M14.82 0H1.18A1.16 1.16 0 000 1.15v13.7A1.16 1.16 0 001.18 16h13.64A1.16 1.16 0 0016 14.85V1.15A1.16 1.16 0 0014.82 0zM4.74 13.68H2.37V6h2.37v7.68zM3.55 4.96a1.38 1.38 0 110-2.75 1.38 1.38 0 010 2.75zM13.68 13.68h-2.36V9.96c0-.89-.02-2.03-1.24-2.03-1.24 0-1.43.97-1.43 1.96v3.8H6.28V6h2.27v1.05h.03c.32-.59 1.09-1.22 2.25-1.22 2.41 0 2.85 1.58 2.85 3.64v4.21z">
+                                        </path>
+                                    </svg>
+                                    <a href="https://linkedin.com/in/ayesha-areej-b44834232" target="_blank"
+                                        style="color: white; text-decoration: none;">linkedin.com/in/ayesha-areej-b44834232</a>
+                                </span>
+
+                                <span style="display: flex; align-items: center; gap: 10px;">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="#64ffda">
+                                        <path
+                                            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+                                        </path>
+                                    </svg>
+                                    <a href="https://github.com/AyeshaAreej" target="_blank"
+                                        style="color: white; text-decoration: none;">github.com/AyeshaAreej</a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- ══════════════════ BODY ══════════════════ -->
+        <div class="body-wrap">
+
+            <!-- ════ MAIN COLUMN ════ -->
+            <div class="main-col">
+
+                <!-- EXPERIENCE -->
+                <div class="section">
+                    <div class="section-title">Professional Experience</div>
+
+                    <div class="exp-item">
+                        <div class="exp-header">
+                            <div>
+                                <div class="exp-company">Enumsol</div>
+                                <div class="exp-role">Software Engineer</div>
+                            </div>
+                            <span class="exp-date">Feb 2023 – Present &nbsp;·&nbsp; Islamabad, PK</span>
+                        </div>
+                        <ul class="exp-bullets">
+                            <li>Contribute to the core frontend development of the corporate website for Enumsol,
+                                ensuring a responsive and seamless user experience.</li>
+                            <li>Implemented the complete frontend architecture of a complex Norway Research Project from
+                                scratch.</li>
+                            <li>Developed a high-performance Food Delivery Mobile App for both iOS and Android platforms
+                                using <strong>React Native</strong> and <strong>Tailwind CSS</strong>.</li>
+                            <li>Architected smart workflow automations utilizing <strong>n8n, Zapier, Make, and
+                                    Flowise</strong> to enhance team productivity and system integrations.</li>
+                        </ul>
+                    </div>
+
+                    <div class="exp-item">
+                        <div class="exp-header">
+                            <div>
+                                <div class="exp-company">Alta Tech Mark</div>
+                                <div class="exp-role">Software Engineer</div>
+                            </div>
+                            <span class="exp-date">May 2023 – Aug 2023</span>
+                        </div>
+                        <ul class="exp-bullets">
+                            <li>Developed a mobile application connected to IoT sensors for comprehensive plant
+                                management, featuring automated watering, lighting, and moisture tracking.</li>
+                            <li>Engineered an Instagram-like social media application specialized for capturing and
+                                sharing thermal images.</li>
+                        </ul>
+                    </div>
+
+                    <div class="exp-item">
+                        <div class="exp-header">
+                            <div>
+                                <div class="exp-company">MayaLogic</div>
+                                <div class="exp-role">Full-stack Developer (Intern)</div>
+                            </div>
+                            <span class="exp-date">Oct 2022 – Jan 2023</span>
+                        </div>
+                        <ul class="exp-bullets">
+                            <li>Developed a tailored ERP system for Sun Tech, streamlining business operations with
+                                automated workflows, real-time data tracking, and integrated reporting. The platform
+                                enhances productivity by managing inventory, finance, and HR processes efficiently,
+                                ensuring seamless scalability and operational control.</li>
+                            <li>Built a comprehensive job hunting platform utilizing the MERN stack (MongoDB, Express,
+                                React, Node.js) and styled with Tailwind CSS.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- CLIENT PROJECTS -->
+                <div class="section mt-[300px]">
+                    <div class="section-title">Client Projects</div>
+
+                    <div class="project-card">
+                        <div class="project-name">🏢 SUNT (ERP System)</div>
+                        <div class="project-desc">Developed a tailored ERP system for Sun Tech, streamlining business
+                            operations with automated workflows, real-time data tracking, and integrated reporting.
+                            Enhances productivity by managing inventory, finance, and HR processes efficiently.</div>
+                        <div class="project-tags">
+                            <span class="tag">Python</span><span class="tag">PostgreSQL</span><span
+                                class="tag">Docker</span><span class="tag">Tailwind
+                                CSS</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-name">🤖 Generate Genie</div>
+                        <div class="project-desc">Built a scalable AI-powered automation platform cutting manual effort
+                            by 40%. Features real-time data integration, custom APIs, and an intuitive dashboard
+                            ensuring high performance and security.</div>
+                        <div class="project-tags">
+                            <span class="tag">Next.js</span><span class="tag">Supabase</span><span
+                                class="tag">Strapi</span><span class="tag">Gemini API</span><span class="tag">OpenAI
+                                API</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-name">🛡️ Docuguardian</div>
+                        <div class="project-desc">Engineered a secure and efficient document management system for
+                            seamless file storage, retrieval, and sharing, with integrated advanced encryption
+                            protocols.</div>
+                        <div class="project-tags">
+                            <span class="tag">Next.js</span><span class="tag">Node.js</span><span class="tag">Tailwind
+                                CSS</span><span class="tag">Airtable API</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-name">💻 Toksta</div>
+                        <div class="project-desc">Developed a high-performance frontend for enhanced user engagement.
+                            Features include an intuitive dashboard, fast load times, and responsive design across all
+                            devices.</div>
+                        <div class="project-tags">
+                            <span class="tag">React</span><span class="tag">Next.js</span><span
+                                class="tag">Node.js</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-name">⚙️ Optiwork</div>
+                        <div class="project-desc">Integrated an AI-driven workforce management system with predictive
+                            analytics and automated scheduling, optimizing workforce allocation and reducing
+                            inefficiencies by 40%.</div>
+                        <div class="project-tags">
+                            <span class="tag">Next.js</span><span class="tag">MySQL</span><span class="tag">Tailwind
+                                CSS</span><span class="tag">OpenAI API</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-name">📱 Food Delivery Mobile App</div>
+                        <div class="project-desc">Developed a cross-platform mobile application for both iOS and Android
+                            platforms. Implemented a seamless UI for browsing menus, customizing orders, and managing
+                            carts with real-time updates.</div>
+                        <div class="project-tags">
+                            <span class="tag">React Native</span><span class="tag">Redux</span><span
+                                class="tag">NativeWind</span><span class="tag">Tailwind CSS</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-name">🚗 CarSupportGuys (Car Services App)</div>
+                        <div class="project-desc">Built a comprehensive car service platform connecting users with
+                            expert mechanics in real-time. Features include mileage tracking, real-time chat/call
+                            assistance, and dynamic UI components.</div>
+                        <div class="project-tags">
+                            <span class="tag">Nuxt.js</span><span class="tag">Vue.js</span><span class="tag">Frontend
+                                Development</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PERSONAL PROJECTS -->
+                <div class="section">
+                    <div class="section-title">Personal Projects</div>
+
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
+                        <div class="project-card compact-card" style="margin-bottom: 0;">
+                            <div class="project-name">🐦 BlueJay Event Planner</div>
+                            <div class="project-desc">Developed an event planning platform with a web and mobile
+                                application.</div>
+                            <div class="project-tags">
+                                <span class="tag">React</span><span class="tag">React Native</span><span
+                                    class="tag">Node.js</span>
+                            </div>
+                        </div>
+
+                        <div class="project-card compact-card" style="margin-bottom: 0;">
+                            <div class="project-name">🎬 Netflix Clone</div>
+                            <div class="project-desc">A full-stack web application replicating the core features and UI
+                                of Netflix.</div>
+                            <div class="project-tags">
+                                <span class="tag">MERN Stack</span><span class="tag">MongoDB</span><span
+                                    class="tag">React</span>
+                            </div>
+                        </div>
+                        <div class="project-card compact-card" style="margin-bottom: 0;">
+                            <div class="project-name">CodeDoc Genie</div>
+                            <div class="project-desc">Built an AI-powered Code Documentation Assistant using AWS
+                                (Lambda, API Gateway, Amazon Bedrock – Titan Text Lite), enabling automated generation
+                                of code documentation and inline comments.</div>
+                            <div class="project-tags">
+                                <span class="tag">AWS</span><span class="tag">Amazon Bedrock</span><span
+                                    class="tag">Titan Text Lite</span>
+                            </div>
+                        </div>
+                        <div class="project-card compact-card" style="margin-bottom: 0;">
+                            <div class="project-name">🏥 Hospital System</div>
+                            <div class="project-desc">A robust desktop application for managing hospital records and
+                                patients.</div>
+                            <div class="project-tags">
+                                <span class="tag">C#</span><span class="tag">Database</span>
+                            </div>
+                        </div>
+
+
+
+                        <div class="project-card compact-card" style="margin-bottom: 0;">
+                            <div class="project-name">🤖 Emotion-Aware Chatbot using Fine-Tuned Transformer Models</div>
+                            <div class="project-desc">Developed an NLP-based emotion-aware chatbot by fine-tuning a
+                                transformer model (BERT/DistilBERT) on the Hugging Face Emotion dataset; performed
+                                preprocessing, EDA, and tokenization, trained using the Trainer API, evaluated with
+                                metrics (accuracy, F1, precision, recall, ROC-AUC, MCC, confusion matrix)/</div>
+                            <div class="project-tags">
+                                <span class="tag">BERT/DistilBERT</span><span class="tag">Hugging Face</span>
+                            </div>
+                        </div>
+
+                        <div class="project-card compact-card" style="margin-bottom: 0;">
+                            <div class="project-name">🎥 Movie Prediction</div>
+                            <div class="project-desc">A machine learning project to predict movie genres based on
+                                features.</div>
+                            <div class="project-tags">
+                                <span class="tag">Python</span><span class="tag">Machine Learning</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- ════ SIDE COLUMN ════ -->
+            <div class="side-col">
+
+                <!-- SKILLS -->
+                <div class="section">
+                    <div class="section-title">Skills</div>
+
+                    <div class="skill-group">
+                        <div class="skill-group-label">Frontend</div>
+                        <div class="skill-chips">
+                            <span class="chip">React</span>
+                            <span class="chip">Next.js</span>
+                            <span class="chip">Vue.js</span>
+                            <span class="chip">lovable.dev</span>
+                            <span class="chip">JavaScript</span>
+                            <span class="chip">TailwindCSS</span>
+                            <span class="chip">Nuxt.js</span>
+                            <span class="chip">Django</span>
+                            <span class="chip">Bootstrap</span>
+                            <span class="chip">Material UI</span>
+                            <span class="chip">TypeScript</span>
+                            <span class="chip">shadcn</span>
+                            <span class="chip">Framer motion</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-group">
+                        <div class="skill-group-label">Backend</div>
+                        <div class="skill-chips">
+                            <span class="chip">Node.js</span>
+                            <span class="chip">Express.js</span>
+                            <span class="chip">FastAPI</span>
+                            <span class="chip">Strapi</span>
+                            <span class="chip">Prisma</span>
+                            <span class="chip">Redux/toolkit</span>
+                            <span class="chip">AWS Cloud Services</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-group">
+                        <div class="skill-group-label">Mobile</div>
+                        <div class="skill-chips">
+                            <span class="chip">React Native</span>
+                            <span class="chip">Expo</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-group">
+                        <div class="skill-group-label">Databases</div>
+                        <div class="skill-chips">
+                            <span class="chip">MongoDB</span>
+                            <span class="chip">PostgreSQL</span>
+                            <span class="chip">MySQL</span>
+                            <span class="chip">Redis</span>
+                            <span class="chip">supabase</span>
+                            <span class="chip">firebase</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-group">
+                        <div class="skill-group-label">Tools</div>
+                        <div class="skill-chips">
+                            <span class="chip">Docker</span>
+                            <span class="chip">Git</span>
+                            <span class="chip">Github</span>
+                            <span class="chip">Gitlab</span>
+                            <span class="chip">Jira</span>
+                            <span class="chip">Slack</span>
+                            <span class="chip">Swagger</span>
+                            <span class="chip">Figma</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-group">
+                        <div class="skill-group-label">AI &amp; Automation</div>
+                        <div class="skill-chips">
+                            <span class="chip">n8n</span>
+                            <span class="chip">make</span>
+                            <span class="chip">zapier</span>
+                            <span class="chip">flowise</span>
+                            <span class="chip">Prompt Engineering</span>
+                            <span class="chip">OpenAI API</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-group">
+                        <div class="skill-group-label">Cloud &amp; DevOps</div>
+                        <div class="skill-chips">
+                            <span class="chip">AWS EC2</span>
+                            <span class="chip">AWS RDS</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-group">
+                        <div class="skill-group-label">Integrations</div>
+                        <div class="skill-chips">
+                            <span class="chip">Google Sheets API</span>
+                            <span class="chip">Slack API</span>
+                            <span class="chip">Airtable</span>
+                            <span class="chip">Discord API</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- EDUCATION -->
+                <div class="section">
+                    <div class="section-title">Education</div>
+
+                    <div class="edu-item">
+                        <div class="edu-school">National University of Sciences &amp; Technology (NUST)</div>
+                        <div class="edu-degree">B.S. Software Engineering / Computer Science</div>
+                        <div class="edu-date">Islamabad, Pakistan</div>
+                    </div>
+                    <div class="edu-item">
+                        <div class="edu-school">Sukkur IBA University (SIBA)</div>
+                        <div class="edu-degree">Bachelor of Science in Software Engineering</div>
+                        <div class="edu-date">Sukkur, Pakistan</div>
+                    </div>
+                </div>
+
+                <!-- CERTIFICATIONS -->
+                <div class="section">
+                    <div class="section-title">Certifications</div>
+
+                    <div class="cert-item">
+                        <div class="cert-dot"></div>
+                        <div>
+                            <div class="cert-name">n8n Certified Workflow Professional — Level 1</div>
+                            <div class="cert-issuer">n8n · 2025</div>
+                        </div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-dot"></div>
+                        <div>
+                            <div class="cert-name">Full Stack Web Development with React</div>
+                            <div class="cert-issuer">Coursera (Hong Kong UST) · Feb 2022</div>
+                        </div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-dot"></div>
+                        <div>
+                            <div class="cert-name">Advanced Relational Database &amp; SQL</div>
+                            <div class="cert-issuer">Coursera · Jul 2020</div>
+                        </div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-dot"></div>
+                        <div>
+                            <div class="cert-name">International Leadership &amp; Organizational Behavior</div>
+                            <div class="cert-issuer">Coursera · Aug 2020</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ACHIEVEMENTS -->
+                <div class="section">
+                    <div class="section-title">Achievements</div>
+                    <div class="cert-item" style="margin-bottom: 12px;">
+                        <div class="cert-dot"></div>
+                        <div>
+                            <div class="cert-name"
+                                style="font-weight: 600; color: var(--dark); font-size: 0.9rem; line-height: 1.4;">
+                                Talent Hunt Scholarship Sukkur IBA University</div>
+                            <div class="cert-issuer" style="font-size: 0.8rem; color: var(--muted); margin-top: 2px;">
+                                (2018 - 2022)</div>
+                        </div>
+                    </div>
+                    <div class="cert-item" style="margin-bottom: 12px;">
+                        <div class="cert-dot"></div>
+                        <div>
+                            <div class="cert-name"
+                                style="font-weight: 600; color: var(--dark); font-size: 0.9rem; line-height: 1.4;">
+                                Certificate of organizing PSYWSC'19 by IEEE society held in Sukkur IBA University</div>
+                            <div class="cert-issuer" style="font-size: 0.8rem; color: var(--muted); margin-top: 2px;">
+                                (02/2019)</div>
+                        </div>
+                    </div>
+                    <div class="cert-item" style="margin-bottom: 12px;">
+                        <div class="cert-dot"></div>
+                        <div>
+                            <div class="cert-name"
+                                style="font-weight: 600; color: var(--dark); font-size: 0.9rem; line-height: 1.4;">
+                                Student of The Year Award in College</div>
+                            <div class="cert-issuer" style="font-size: 0.8rem; color: var(--muted); margin-top: 2px;">
+                                Army Public School and College Shikarpur (10/2017)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SOFT SKILLS -->
+                <div class="section">
+                    <div class="section-title">Soft Skills</div>
+                    <div class="skill-chips">
+                        <span class="chip">Technologically Competent</span>
+                        <span class="chip">Problem Solver</span>
+                        <span class="chip">Multitasking</span>
+                        <span class="chip">Communication Skills</span>
+                        <span class="chip">Team Work</span>
+                    </div>
+                </div>
+
+            </div><!-- end side-col -->
+        </div><!-- end body-wrap -->
+    </div><!-- end resume-document -->
+
+
+</body>
+
+</html>
