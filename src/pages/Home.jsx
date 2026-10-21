@@ -4,7 +4,9 @@ import homeLogo from '../assets/about.png'
 import Particle from '../components/Particle';
 import About from '../components/Home/About';
 import Type from '../components/Home/Type';
-// import Certifications from '../components/Certifications/Certifications';
+import Experience from '../components/Experience/Experience';
+import Certifications from '../components/Certifications/Certifications';
+import Blog from '../components/Blog/Blog';
 
 
 const Home = () => {
@@ -44,7 +46,9 @@ const Home = () => {
         </Container>
       </Container>
       <About />
-      {/* <Certifications /> */}
+      <Experience />
+      <Certifications variant="plain" />
+      <Blog />
     </section>
   );
 }

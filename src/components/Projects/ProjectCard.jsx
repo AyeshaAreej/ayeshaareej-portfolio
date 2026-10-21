@@ -15,6 +15,7 @@ const ProjectCard = (props) => {
         alignContent: "space-between",
       }}
     >
+      {props.imgPath && (
       <Card.Img
         variant="top"
         src={props.imgPath}
@@ -26,6 +27,7 @@ const ProjectCard = (props) => {
           borderRadius: "10%",
         }}
       />
+      )}
       <Card.Body
         style={{
           display: "flex",
@@ -38,6 +40,14 @@ const ProjectCard = (props) => {
         <Card.Text style={{ textAlign: "justify",fontSize:"15px" }}>
           {props.description}
         </Card.Text>
+        {props.tags && (
+          <div className="chip-row" style={{ marginBottom: "14px" }}>
+            {props.tags.map((t) => (
+              <span className="chip" key={t}>{t}</span>
+            ))}
+          </div>
+        )}
+        {props.ghLink && (
         <Button
           variant="primary"
           href={props.ghLink}
@@ -55,6 +65,7 @@ const ProjectCard = (props) => {
           <BsGithub /> &nbsp;
           {props.isBlog ? "Blog" : "GitHub"}
         </Button>
+        )}
         {"\n"}
         {"\n"}
 

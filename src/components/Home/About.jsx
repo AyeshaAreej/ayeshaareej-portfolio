@@ -21,31 +21,19 @@ const About = () => {
                   LET ME <span className="yellow"> INTRODUCE </span> MYSELF
                 </h1>
                 <p className="home-about-body">
-                 Hi, my name is <span className="yellow">Ayesha Areej </span>
-                 and I'm a <span className="yellow"> Full-Stack Web & Mobile App Developer.</span>
-                <br />
-               
-                <br />
-                 I specialize in building modern, 
-                  <b className="yellow"> user-friendly </b>software 
-                  using technologies like React.js, Node.js, NestJS, and React Native.
-                  <br />
-                  <br />I am proficient in
-                    <b className="yellow"> Javascript, </b>
-                    as well as have knowledge in programming languages such as C, 
-                  <b className="yellow"> Java, and Python.</b>
+                  I build <span className="yellow">production systems, not demos.</span> Software products, AI-driven automations, and SaaS platforms that hold up under real usage, not just in a pitch.
                   <br />
                   <br />
-                  I enjoy building projects that solve  
-                  with <b className="yellow">real-world problems</b> — from event planning platforms and mobile apps to management systems and interactive clones.
+                  As <b className="yellow">Co-founder at Enumsol</b>, I lead engineering across a range of AI-native systems, from workflow automation to <b className="yellow">LLM-integrated backend pipelines</b>, architecting things that actually reduce manual work rather than just looking automated.
                   <br />
                   <br />
-                  Beyond coding, I’m a 
-                    <b className="yellow"> problem solver, strong communicator, and team player. </b>
-                   Being awarded the Talent Hunt scholarship by <b className="yellow"> Sukkur IBA University</b> to pursue my Bachelor's degree, reflects my academic excellence and dedication.
+                  My background is in software engineering and AI: a <b className="yellow">Master's in Computer Science from NUST</b>, with hands-on work in full-stack development, NLP, and automation. I also build <b className="yellow">SaaS products</b>, from AI-powered internal tools to automation platforms that cut hours of repetitive effort for founders and teams, and I have shipped products that moved from a rough idea to a paying customer's daily workflow.
                   <br />
-                  <br/>
-                  In short, I’m driven by a passion for technology and a focus on delivering  <b className="yellow"> high-quality, scalable solutions</b> that thrive in  <b className="yellow"> dynamic environments.</b>
+                  <br />
+                  This summer I served as <b className="yellow">Team Lead</b> at the Pak-Thai Digital Innovation Lab at NUST, and I was awarded the Talent Hunt Scholarship by Sukkur IBA University for my Bachelor's degree.
+                  <br />
+                  <br />
+                  If you have a process held together by memory instead of a system, <span className="yellow">I would like to hear about it.</span>
                 </p>
               </Col>
               {/* svg img to be update form having male to female */}

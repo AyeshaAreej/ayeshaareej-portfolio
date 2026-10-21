@@ -6,7 +6,6 @@ import {
 } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
-import logo from "../../assets/sLogo.png";
 
 const Footer = () => {
     let date = new Date();
@@ -15,11 +14,10 @@ const Footer = () => {
       <Container fluid className="footer">
         <Row>
           <Col md="4" className="footer-copywright">
-            <span>Dedicated to creating impactful solutions!</span>
+            <span>Building AI systems and products that reduce real work.</span>
           </Col>
           <Col md="4" className="footer-copywright">
-            <span>Copyright © {year}</span>
-            <img src={logo} className="img-fluid logo" alt="brand" />
+            <span>© {year} Ayesha Areej. All rights reserved.</span>
           </Col>
           <Col md="4" className="footer-body">
             <ul className="footer-icons">

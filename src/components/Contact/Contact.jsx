@@ -27,10 +27,10 @@ const Contact = () => {
       
     emailjs
       .sendForm(
-        "service_niilndo",
-        "template_6z5idye",
+        process.env.REACT_APP_EMAILJS_SERVICE_ID,
+        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
         form.current,
-        "VOBt6Akm1LhI5CZG-"
+        process.env.REACT_APP_EMAILJS_PUBLIC_KEY
       )
       .then(
         (result) => {
@@ -59,7 +59,7 @@ const Contact = () => {
                 <textarea name="message" className="user" placeholder="Message" onChange={handleChange} />
                 <span className='not-done' >{notDone && "Please, fill all the input field"}</span>
                 <Button type="submit" className="button" disabled={done}>Send</Button>
-                <span className='done'>{done && "Thanks for contacting me and be sure i have recieved your mail. If you are testing this functionality then i am confirming this thing working perfectly fine. If you have any serious query then i will reply. Also if you need me, you can conatct me on Linkedin."}</span>
+                <span className='done'>{done && "Thanks for reaching out! I have received your message and will reply soon. You can also find me on LinkedIn."}</span>
                 </form>
             </Col>
             </Row>
