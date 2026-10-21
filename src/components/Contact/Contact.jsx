@@ -8,12 +8,14 @@ const Contact = () => {
     const form = useRef();
     const [done, setDone] = useState(false)
     const [notDone, setNotDone] = useState(false)
+    const [failed, setFailed] = useState(false)
     const [formData, setFormData] = useState({});
 
     const handleChange = (e) => {
         setFormData({...formData, [e.target.name] : e.target.value})
         setDone(false)
         setNotDone(false)
+        setFailed(false)
     }
 
     const sendEmail = (e) => {
@@ -39,6 +41,7 @@ const Contact = () => {
         },
         (error) => {
           console.log(error.text);
+          setFailed(true);
         }
       );
     }
@@ -51,14 +54,17 @@ const Contact = () => {
             <Col md={6} className="c-left" >
             <h1 >Get in Touch</h1>
             <h1 className="yellow">Contact me</h1>
+            <p style={{ color: "white" }}>Or email me directly at <a href="mailto:ayeshaareej59@gmail.com">ayeshaareej59@gmail.com</a></p>
             </Col>
             <Col md={6} className="c-right">
                 <form ref={form} onSubmit={sendEmail}>
+                <input type="hidden" name="to_email" value="ayeshaareej59@gmail.com" />
                 <input type="text" name="from_name" className="user"  placeholder="Name" onChange={handleChange}/>
                 <input type="email" name="reply_to" className="user" placeholder="Email" onChange={handleChange} />
                 <textarea name="message" className="user" placeholder="Message" onChange={handleChange} />
                 <span className='not-done' >{notDone && "Please, fill all the input field"}</span>
                 <Button type="submit" className="button" disabled={done}>Send</Button>
+                <span className='not-done'>{failed && "Sorry, your message could not be sent. Please email me directly at ayeshaareej59@gmail.com"}</span>
                 <span className='done'>{done && "Thanks for reaching out! I have received your message and will reply soon. You can also find me on LinkedIn."}</span>
                 </form>
             </Col>

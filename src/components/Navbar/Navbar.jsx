@@ -10,7 +10,8 @@ import {
   // AiFillStar,
   AiOutlineHome,
   AiOutlineFundProjectionScreen,
-  AiOutlineContacts
+  AiOutlineContacts,
+  AiOutlineEdit
 } from "react-icons/ai";
 import { GiSkills } from "react-icons/gi"
 import { CgFileDocument } from "react-icons/cg";
@@ -84,6 +85,15 @@ function NavBar() {
               </Nav.Link>
             </Nav.Item>
 
+            <Nav.Item>
+              <Nav.Link
+                as={Link}
+                to="/blog"
+                onClick={() => updateExpanded(false)}
+              >
+                <AiOutlineEdit style={{ marginBottom: "2px" }} /> Blog
+              </Nav.Link>
+            </Nav.Item>
             <Nav.Item>
               <Nav.Link
                 as={Link}
