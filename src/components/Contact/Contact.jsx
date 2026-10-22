@@ -55,6 +55,18 @@ const Contact = () => {
             <h1 >Get in Touch</h1>
             <h1 className="yellow">Contact me</h1>
             <p style={{ color: "white" }}>Or email me directly at <a href="mailto:ayeshaareej59@gmail.com">ayeshaareej59@gmail.com</a></p>
+            <div className="call-card">
+              <h4>Prefer to talk?</h4>
+              <p>Book a free 15-minute call to discuss your project, automation or SaaS idea.</p>
+              <a
+                className="btn btn-primary"
+                href={process.env.REACT_APP_BOOKING_URL || "mailto:ayeshaareej59@gmail.com?subject=15-minute%20call%20request"}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Book a 15-minute call
+              </a>
+            </div>
             </Col>
             <Col md={6} className="c-right">
                 <form ref={form} onSubmit={sendEmail}>

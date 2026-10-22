@@ -10,7 +10,7 @@ const Footer = () => {
       <Container fluid className="footer">
         <Row>
           <Col md="4" className="footer-copywright">
-            <span>Building AI systems and products that reduce real work.</span>
+            <span>AI Automation &amp; SaaS Engineer</span>
           </Col>
           <Col md="4" className="footer-copywright">
             <span>© {year} Ayesha Areej. All rights reserved.</span>
@@ -58,7 +58,6 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   aria-label="leetcode"
                 >
-                  <SiLeetcode />
                 </a>
               </li> */}
             </ul>

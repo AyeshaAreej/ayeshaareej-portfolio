@@ -16,7 +16,6 @@ const renderBlock = (b, i) => {
 };
 
 const BlogPost = () => {
-  console.log("BlogPost component rendered");
   const { slug } = useParams();
   const post = blogPosts.find((p) => p.slug === slug);
   if (!post) return <Navigate to="/blog" />;

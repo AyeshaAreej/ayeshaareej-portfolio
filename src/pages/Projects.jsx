@@ -21,7 +21,7 @@ const Projects = () => {
               title="insidercph.com"
               tags={["Lovable","Supabase","Web Scraping"]}
               description="Job search platform for Copenhagen, built with Lovable and Supabase. A scraper collects and filters new listings every day, and the site shows them in one place."
-              demoLink="https://insidercph.com"
+              websiteLink="https://insidercph.com"
             />
           </Col>
 
@@ -110,6 +110,7 @@ const Projects = () => {
             <ProjectCard
               isBlog={false}
               title="BlueJay Event Planner"
+              demoLink="" /* paste the BlueJay demo URL between the quotes and the Demo button appears */
               tags={["React","React Native","Node.js"]}
               description="Event planning platform with web and mobile applications for event coordination and management, built with React, React Native and Node.js."
             />

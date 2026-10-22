@@ -71,6 +71,27 @@ const ProjectCard = (props) => {
 
         {/* If the component contains Demo link and if it's not a Blog then, it will render the below component  */}
 
+        {!props.isBlog && props.websiteLink && (
+          <Button
+            variant="primary"
+            href={props.websiteLink}
+            target="_blank"
+            style={{
+              marginTop: "10px",
+              display: "flex",
+              justifyContent: "center",
+              alignContent: "flex-end",
+              alignItems: "center",
+              textAlign: "center",
+              position: "static",
+              bottom: "0px",
+            }}
+          >
+            <CgWebsite /> &nbsp;
+            {"Website"}
+          </Button>
+        )}
+
         {!props.isBlog && props.demoLink && (
           <Button
             variant="primary"

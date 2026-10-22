@@ -12,7 +12,6 @@ const Blogs = () => (
       <p style={{ color: "white" }}>Notes on AI automation, SaaS and voice AI from things I have built.</p>
       <Row>
         {blogPosts.map((p) => (
-          
           <Col xs={12} sm={6} lg={4} key={p.title} className="blog-col"><BlogCard post={p} /></Col>
         ))}
       </Row>

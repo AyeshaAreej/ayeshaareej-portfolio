@@ -822,3 +822,7 @@ html {
 .post-body ul, .post-body ol { padding-left: 22px; }
 .post-body li { margin-bottom: 8px; }
 .post-body blockquote { margin: 28px 0; padding: 14px 20px; border-left: 4px solid #b58cff; background: rgba(117, 0, 250, 0.12); border-radius: 0 10px 10px 0; font-style: italic; font-size: 1.15rem; }
+
+/* book a call card */
+.call-card { margin-top: 28px; padding: 22px; text-align: left; color: #fff; border-radius: 14px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(117, 0, 250, 0.5); }
+.call-card h4 { margin-bottom: 8px; }
