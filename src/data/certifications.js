@@ -8,8 +8,6 @@ const certifications = [
   { title: "Advanced Relational Database and SQL", issuer: "Coursera", year: "2020", image: "advancedRelationalDb.png" },
   { title: "Building and Optimizing Triggers in SQL Server", issuer: "DataCamp", year: "2020", image: "buildingAndOptimizingTriggers.png" },
   { title: "Breast Cancer Prediction Model", issuer: "OpenWeaver", year: "2022", image: "MLCERITIFICATE.jpeg" },
-  { title: "Advanced Relational Database and SQL", issuer: "Coursera", year: "2020", image: "ARDS.png" },
-
 
 
 ];
