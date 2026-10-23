@@ -17,6 +17,7 @@ const embedUrl = (url) => {
 };
 
 const Contact = () => {
+  console.log("Booking URL:", bookingUrl);
     const [showCal, setShowCal] = useState(false)
     const form = useRef();
     const [done, setDone] = useState(false)
@@ -73,7 +74,8 @@ const Contact = () => {
               {bookingUrl ? (
                 <Button variant="primary" onClick={() => setShowCal(true)}>Book a 15-minute call</Button>
               ) : (
-                <a className="btn btn-primary" href="mailto:ayeshaareej59@gmail.com?subject=15-minute%20call%20request">
+                <a className="btn btn-primary"     
+                href={bookingUrl || "https://cal.com/ayesha-areej-1ms6m7/intro-meeting"}>
                   Book a 15-minute call
                 </a>
               )}
