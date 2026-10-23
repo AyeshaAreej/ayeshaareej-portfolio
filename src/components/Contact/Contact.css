@@ -1,15 +1,6 @@
-.contact-form{
-    padding: 0 3rem 0 3rem;
-    display: flex;
-    height: 80vh;
-    margin-top: 4rem;
-      /* scroll */
-  padding-top: 3rem;
-}
-
 .c-left{
     text-align: center !important;
-    padding-top: 25px;
+    padding-top: 0;
     color: white !important;
 }
 
@@ -20,27 +11,28 @@
     flex: 1;
 }
 
-.c-right>form
-{
+.c-right>form{
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-    align-items: center;
-    
+    gap: 1.25rem;
+    align-items: stretch;
+    width: 100%;
+    max-width: 460px;
 }
 
 .c-right .user{
-    width: 24rem;
+    width: 100%;
     height: 3rem;
-    padding: 0.3em;
+    padding: 0.3em 0.6em;
     outline: none;
     border: 2px solid #40008a;
     border-radius: 8px;
     font-size: 19px;
-    color: white   
+    color: white;
 }
 
-.c-right .user:hover{
+.c-right .user:hover,
+.c-right .user:focus{
     box-shadow: 0 0 9px #7500fa;
 }
 
@@ -48,33 +40,50 @@ input{
     background-color: var(--purple)
 }
 textarea{
-    height: 5rem!important;
+    height: 8rem !important;
+    min-height: 6rem;
+    resize: vertical;
     background-color: var(--purple)
 }
 
-.done{
-    font-size: 19px;
-    color: green;
-}
-.not-done{
-    font-size: 19px;
-    color: red;
+.c-right .button{
+    align-self: center;
+    min-width: 130px;
 }
 
-.c-blur1{
-    top: 1rem;
-    left: 8rem;
+.done,
+.not-done{
+    font-size: 16px;
+    text-align: center;
+}
+.done{ color: #3ddc84; }
+.not-done{ color: #ff6b6b; }
+
+.call-card{
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media screen and (max-width: 767px) {
+    .c-left{
+        margin-bottom: 2.5rem;
+    }
+    .c-right .user{
+        font-size: 17px;
+    }
 }
 
 @media screen and (max-width: 480px) {
-    .contact-form{
-        padding: 0;
-        flex-direction: column;
-        gap: 5rem;
-        height: 40rem;
+    .call-card{
+        padding: 18px;
     }
-    .c-right .user{
-        width: 16rem;
+    .call-card .btn{
+        width: 100%;
     }
-
 }
+
+.cal-modal{ background: #0d0e2e; color: #fff; border: 1px solid rgba(117, 0, 250, 0.6); border-radius: 14px; overflow: hidden; }
+.cal-modal .modal-header, .cal-modal .modal-footer{ border-color: rgba(117, 0, 250, 0.4); }
+.cal-modal .modal-footer a{ color: #b58cff; font-size: 0.9rem; }
+.cal-frame{ width: 100%; height: min(680px, 74vh); border: 0; display: block; background: #fff; }

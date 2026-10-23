@@ -47,7 +47,7 @@ const Home = () => {
       </Container>
       <About />
       <Experience />
-      <Certifications variant="plain" />
+      <Certifications />
       <Blog />
     </section>
   );

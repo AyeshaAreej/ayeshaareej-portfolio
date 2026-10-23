@@ -2,9 +2,22 @@ import React,{useState, useRef} from 'react'
 import emailjs from "@emailjs/browser";
 import { Container, Row, Col } from "react-bootstrap";
 import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 import './Contact.css'
 
+const bookingUrl = process.env.REACT_APP_BOOKING_URL || "";
+
+// builds the embed address for Calendly or Cal.com; any other link is used as given
+const embedUrl = (url) => {
+  if (!url) return "";
+  const join = url.includes("?") ? "&" : "?";
+  if (url.includes("calendly.com")) return url + join + "hide_gdpr_banner=1&background_color=0d0e2e&text_color=ffffff&primary_color=7500fa";
+  if (url.includes("cal.com")) return url + join + "embed=true&theme=dark";
+  return url;
+};
+
 const Contact = () => {
+    const [showCal, setShowCal] = useState(false)
     const form = useRef();
     const [done, setDone] = useState(false)
     const [notDone, setNotDone] = useState(false)
@@ -49,23 +62,21 @@ const Contact = () => {
     
 
     return(
-        <Container style={{paddingTop: '50px'}} >
-            <Row >
+        <Container style={{paddingTop: '130px', paddingBottom: '20px'}} >
+            <Row className="align-items-center">
             <Col md={6} className="c-left" >
             <h1 >Get in Touch</h1>
             <h1 className="yellow">Contact me</h1>
-            <p style={{ color: "white" }}>Or email me directly at <a href="mailto:ayeshaareej59@gmail.com">ayeshaareej59@gmail.com</a></p>
             <div className="call-card">
               <h4>Prefer to talk?</h4>
               <p>Book a free 15-minute call to discuss your project, automation or SaaS idea.</p>
-              <a
-                className="btn btn-primary"
-                href={process.env.REACT_APP_BOOKING_URL || "mailto:ayeshaareej59@gmail.com?subject=15-minute%20call%20request"}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Book a 15-minute call
-              </a>
+              {bookingUrl ? (
+                <Button variant="primary" onClick={() => setShowCal(true)}>Book a 15-minute call</Button>
+              ) : (
+                <a className="btn btn-primary" href="mailto:ayeshaareej59@gmail.com?subject=15-minute%20call%20request">
+                  Book a 15-minute call
+                </a>
+              )}
             </div>
             </Col>
             <Col md={6} className="c-right">
@@ -81,6 +92,17 @@ const Contact = () => {
                 </form>
             </Col>
             </Row>
+            <Modal show={showCal} onHide={() => setShowCal(false)} size="lg" centered contentClassName="cal-modal">
+              <Modal.Header closeButton closeVariant="white">
+                <Modal.Title>Book a 15-minute call</Modal.Title>
+              </Modal.Header>
+              <Modal.Body style={{ padding: 0 }}>
+                <iframe title="Book a call" src={embedUrl(bookingUrl)} className="cal-frame" />
+              </Modal.Body>
+              <Modal.Footer>
+                <a href={bookingUrl} target="_blank" rel="noopener noreferrer">Not loading? Open in a new tab</a>
+              </Modal.Footer>
+            </Modal>
         </Container>
     )
 }

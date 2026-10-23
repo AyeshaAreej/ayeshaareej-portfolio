@@ -38,10 +38,9 @@ function NavBar() {
       className={navColour ? "sticky" : "navbar"}
     >
       <Container>
-         <div className="flex-shrink-0">
-            <Link to="/" className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-              Ayesha 
-            </Link>
+         <div className="brand-logo" aria-label="Ayesha Areej">
+            <img src={process.env.PUBLIC_URL + "/favicon.svg"} alt="" className="brand-mark" />
+            <span className="brand-name">Ayesha Areej</span>
           </div>
         <Navbar.Toggle
           aria-controls="responsive-navbar-nav"

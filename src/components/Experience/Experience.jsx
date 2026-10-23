@@ -30,7 +30,7 @@ const Experience = () => (
       </Row>
       <h1 className="project-heading" style={{ marginTop: "30px" }}><strong className="yellow">Education</strong></h1>
       <Row>
-        <Col md={6}><div className="timeline-card"><h4>M.S. Computer Science</h4><div className="yellow">NUST</div></div></Col>
+        <Col md={6}><div className="timeline-card"><h4>M.S. Computer Science</h4><div className="yellow">National University of Sciences and Technology (SEECS)</div></div></Col>
         <Col md={6}><div className="timeline-card"><h4>B.S. Software Engineering</h4><div className="yellow">Sukkur IBA University · Talent Hunt Scholarship (2018–2022)</div></div></Col>
       </Row>
     </Container>

@@ -826,3 +826,26 @@ html {
 /* book a call card */
 .call-card { margin-top: 28px; padding: 22px; text-align: left; color: #fff; border-radius: 14px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(117, 0, 250, 0.5); }
 .call-card h4 { margin-bottom: 8px; }
+
+/* keep page content above the fixed particle layer so links are clickable */
+.project-section > .container, .about-section > .container { position: relative; z-index: 1; }
+
+/* navbar logo (not a link) */
+.brand-logo { display: flex; align-items: center; gap: 10px; flex-shrink: 0; cursor: default; user-select: none; }
+.brand-mark { width: 38px; height: 38px; border-radius: 10px; }
+.brand-name { font-size: 1.25rem; font-weight: 700; color: #fff; letter-spacing: .3px; }
+@media (max-width: 380px) { .brand-name { font-size: 1.05rem; } .brand-mark { width: 32px; height: 32px; } }
+
+/* certifications: infinite carousel */
+.cert-marquee { overflow: hidden; margin-top: 10px; padding: 10px 0 20px; -webkit-mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent); mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent); }
+.cert-track { display: flex; width: max-content; animation: certScroll var(--cert-duration, 40s) linear infinite; }
+.cert-marquee:hover .cert-track { animation-play-state: paused; }
+@keyframes certScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.cert-slide { position: relative; flex: 0 0 auto; width: clamp(230px, 72vw, 320px); aspect-ratio: 4 / 3; margin-right: 20px; overflow: hidden; border-radius: 14px; border: 1px solid rgba(117, 0, 250, 0.6); background: rgba(117, 0, 250, 0.15); }
+.cert-slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.cert-fallback { height: 100%; display: flex; align-items: center; justify-content: center; font-size: 3.2rem; color: rgba(255,255,255,.7); }
+.cert-overlay { position: absolute; left: 0; right: 0; bottom: 0; padding: 36px 14px 12px; display: flex; flex-direction: column; text-align: left; color: #fff; background: linear-gradient(to top, rgba(8, 2, 28, 0.95), rgba(8, 2, 28, 0.6) 60%, transparent); }
+.cert-overlay strong { font-size: 0.98rem; line-height: 1.25; }
+.cert-overlay span { font-size: 0.82rem; color: #d9b8ff; }
+.cert-overlay small { font-size: 0.75rem; opacity: .8; }
+@media (prefers-reduced-motion: reduce) { .cert-marquee { overflow-x: auto; } .cert-track { animation: none; } }
