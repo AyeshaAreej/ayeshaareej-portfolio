@@ -5,7 +5,8 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import './Contact.css'
 
-const bookingUrl = process.env.REACT_APP_BOOKING_URL || "";
+// Your Cal.com link. REACT_APP_BOOKING_URL in .env overrides it, but the button works without it.
+const bookingUrl = process.env.REACT_APP_BOOKING_URL || "https://cal.com/ayesha-areej-1ms6m7/intro-meeting";
 
 // builds the embed address for Calendly or Cal.com; any other link is used as given
 const embedUrl = (url) => {
@@ -17,7 +18,6 @@ const embedUrl = (url) => {
 };
 
 const Contact = () => {
-  console.log("Booking URL:", bookingUrl);
     const [showCal, setShowCal] = useState(false)
     const form = useRef();
     const [done, setDone] = useState(false)
@@ -71,14 +71,7 @@ const Contact = () => {
             <div className="call-card">
               <h4>Prefer to talk?</h4>
               <p>Book a free 15-minute call to discuss your project, automation or SaaS idea.</p>
-              {bookingUrl ? (
-                <Button variant="primary" onClick={() => setShowCal(true)}>Book a 15-minute call</Button>
-              ) : (
-                <a className="btn btn-primary"     
-                href={bookingUrl || "https://cal.com/ayesha-areej-1ms6m7/intro-meeting"}>
-                  Book a 15-minute call
-                </a>
-              )}
+              <Button variant="primary" onClick={() => setShowCal(true)}>Book a 15-minute call</Button>
             </div>
             </Col>
             <Col md={6} className="c-right">
