@@ -34,6 +34,7 @@ function Particle() {
           },
         },
         interactivity: {
+          detect_on: "window",
           events: {
             onclick: {
               enable: true,

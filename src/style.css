@@ -849,3 +849,6 @@ html {
 .cert-overlay span { font-size: 0.82rem; color: #d9b8ff; }
 .cert-overlay small { font-size: 0.75rem; opacity: .8; }
 @media (prefers-reduced-motion: reduce) { .cert-marquee { overflow-x: auto; } .cert-track { animation: none; } }
+
+
+#tsparticles, #tsparticles canvas { pointer-events: none !important; z-index: 0; }
