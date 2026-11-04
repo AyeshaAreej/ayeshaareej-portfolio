@@ -5,6 +5,8 @@ import Particle from '../components/Particle';
 import About from '../components/Home/About';
 import Type from '../components/Home/Type';
 import Experience from '../components/Experience/Experience';
+import Stats from '../components/Stats/Stats';
+import Process from '../components/Process/Process';
 import Certifications from '../components/Certifications/Certifications';
 import Blog from '../components/Blog/Blog';
 
@@ -46,7 +48,9 @@ const Home = () => {
         </Container>
       </Container>
       <About />
+      <Stats />
       <Experience />
+      <Process />
       <Certifications />
       <Blog />
     </section>

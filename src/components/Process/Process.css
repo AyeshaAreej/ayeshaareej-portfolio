@@ -1,0 +1,8 @@
+.process-tag { display: inline-block; padding: 5px 14px; font-size: 0.75rem; letter-spacing: 1.5px; color: #b58cff; border: 1px solid rgba(117, 0, 250, 0.7); border-radius: 999px; background: rgba(117, 0, 250, 0.12); }
+.process-heading { margin: 16px 0 30px; font-size: clamp(1.9rem, 5vw, 2.6rem); color: #fff; text-align: left; }
+.process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+.process-card { padding: 26px; text-align: left; color: #fff; border-radius: 16px; background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(117, 0, 250, 0.4); transition: transform .25s, box-shadow .25s; }
+.process-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(117, 0, 250, 0.3); }
+.process-num { font-size: 2.6rem; font-weight: 700; line-height: 1; color: rgba(181, 140, 255, 0.35); margin-bottom: 14px; }
+.process-card h4 { margin-bottom: 8px; }
+.process-card p { margin: 0; font-size: 0.95rem; color: rgba(255, 255, 255, 0.68); }

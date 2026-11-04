@@ -1,0 +1,4 @@
+.stats-card { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 28px 20px; padding: 34px 30px; text-align: left; border-radius: 18px; background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(117, 0, 250, 0.45); }
+.stat-number { font-size: clamp(2.2rem, 7vw, 3.2rem); font-weight: 700; line-height: 1.1; color: #b58cff; }
+.stat-label { margin-top: 6px; font-size: 0.95rem; color: rgba(255, 255, 255, 0.65); }
+@media (max-width: 575px) { .stats-card { grid-template-columns: 1fr 1fr; padding: 24px 20px; } }
